@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const path = require('path')
 require('dotenv').config({ path: '.env' })
+require('./config/database')
 
 const app = express()
 
