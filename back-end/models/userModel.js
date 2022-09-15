@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
   },
   bio: {
     type: String,
-    max: 1024,
+    max: 512,
   },
   isAdmin: {
     type: DataTypes.BOOLEAN,
