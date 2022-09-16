@@ -108,3 +108,4 @@ dist
 node_modules
 config/.env
 .prettierrc
+images
