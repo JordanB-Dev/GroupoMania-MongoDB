@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const path = require('path')
 require('dotenv').config({ path: '.env' })
 require('./config/database')
-const { checkUser, requireAuth } = require('./middleware/authMiddleware')
+const { checkUser, isAuth } = require('./middleware/authMiddleware')
 const cors = require('cors')
 const app = express()
 
@@ -42,7 +42,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.get('*', checkUser)
-app.get('/jwtid', requireAuth, (req, res) => {
+app.get('/jwtid', isAuth, (req, res) => {
   res.status(200).json(res.locals.user.id)
 })
 
