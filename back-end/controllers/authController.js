@@ -4,10 +4,20 @@ const { signUpErrors, signInErrors } = require('../utils/errorsUtils')
 
 const maxAge = 3 * 24 * 60 * 60 * 1000
 
-const createToken = (id) => {
-  return jwt.sign({ id }, process.env.TOKEN_SECRET, {
-    expiresIn: maxAge,
-  })
+const createToken = (user) => {
+  return jwt.sign(
+    {
+      _id: user._id,
+      lastname: user.lastname,
+      firstname: user.firstname,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    },
+    process.env.TOKEN_SECRET,
+    {
+      expiresIn: maxAge,
+    }
+  )
 }
 
 /*****************************************************
@@ -27,7 +37,7 @@ module.exports.signUp = async (req, res) => {
     res.status(201).json({ user: user.id })
   } catch (error) {
     const errors = signUpErrors(error)
-    res.status(200).send({ errors })
+    res.status(401).send({ errors })
   }
 }
 
@@ -40,15 +50,22 @@ module.exports.signIn = async (req, res) => {
 
   try {
     const user = await UserModel.login(email, password)
-    const token = createToken(user._id)
+
+    const token = createToken({
+      _id: user._id,
+      lastname: user.lastname,
+      firstname: user.firstname,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    })
     res.cookie('jwt', token, { httpOnly: true, maxAge })
     res.status(200).json({
-      user: user.id,
+      user: user._id,
       isAdmin: user.isAdmin,
     })
   } catch (err) {
     const errors = signInErrors(err)
-    res.status(200).json({ errors })
+    res.status(401).json({ errors })
   }
 }
 
