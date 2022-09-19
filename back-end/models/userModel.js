@@ -40,10 +40,12 @@ const userSchema = new mongoose.Schema(
     bio: {
       type: String,
       max: 512,
+      default: 'Ma BIO',
     },
     likes: {
       type: [String],
     },
+
     isAdmin: {
       type: Boolean,
       default: false,

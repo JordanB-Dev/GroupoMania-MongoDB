@@ -21,6 +21,9 @@ module.exports.updateUser = async (req, res) => {
     return res.status(400).send('ID unknown : ' + req.params.id)
 
   try {
+    if (req.params.id !== req.user._id) {
+      return res.status(403).json('unauthorized request')
+    }
     await UserModel.findOneAndUpdate(
       { _id: req.params.id },
       {
@@ -30,6 +33,7 @@ module.exports.updateUser = async (req, res) => {
       },
       { new: true, upsert: true, setDefaultsOnInsert: true }
     )
+      .select(['-password', '-email'])
       .then((data) => res.send(data))
       .catch((err) => res.status(500).send({ message: err }))
   } catch (err) {
@@ -42,6 +46,9 @@ module.exports.deleteUser = async (req, res) => {
     return res.status(400).send('ID unknown : ' + req.params.id)
 
   try {
+    if (req.params.id !== req.user._id) {
+      return res.status(403).json('unauthorized request')
+    }
     await UserModel.remove({ _id: req.params.id }).exec()
     res.status(200).json({ message: 'Successfully deleted. ' })
   } catch (err) {

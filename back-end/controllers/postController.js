@@ -12,6 +12,9 @@ module.exports.readPost = (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
+  if (req.params.id !== req.user._id) {
+    return res.status(403).json('unauthorized request')
+  }
   let fileName
   try {
     if (
@@ -32,13 +35,15 @@ module.exports.createPost = async (req, res) => {
     await sharp(req.file.buffer).toFile(
       `${__dirname}/../images/uploads/posts/${fileName}`
     )
-    res.status(201).send('Photo post chargé avec succés')
+    res.status(201).send('Photo post uploaded successfully')
   } catch (err) {
     res.status(400)
   }
 
   const newPost = new PostModel({
     posterId: req.body.posterId,
+    lastname: req.user.lastname,
+    firstname: req.user.firstname,
     message: req.body.message,
     picture: req.file != null ? './uploads/posts/' + fileName : '',
     video: req.body.video,
@@ -48,6 +53,7 @@ module.exports.createPost = async (req, res) => {
 
   try {
     const post = await newPost.save()
+
     return res.status(201).json(post)
   } catch (err) {
     return res.status(400)

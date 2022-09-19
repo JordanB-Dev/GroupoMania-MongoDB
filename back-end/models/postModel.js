@@ -6,6 +6,20 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    lastname: {
+      type: String,
+      required: true,
+      minLength: 3,
+      maxLength: 20,
+      trim: true,
+    },
+    firstname: {
+      type: String,
+      required: true,
+      minLength: 3,
+      maxLength: 20,
+      trim: true,
+    },
     message: {
       type: String,
       trim: true,
