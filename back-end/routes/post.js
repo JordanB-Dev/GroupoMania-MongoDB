@@ -1,9 +1,9 @@
 const router = require('express').Router()
 const postController = require('../controllers/postController')
 const commentController = require('../controllers/commentController')
-const { isAuth, isAdmin } = require('../middleware/authMiddleware')
 const multer = require('multer')
 const upload = multer()
+const { isAuth, isAdmin } = require('../middleware/authMiddleware')
 
 const raterLimit = require('express-rate-limit')
 
@@ -14,7 +14,7 @@ const limiter = raterLimit({
 
 router.get('/', isAuth, postController.readPost)
 router.post(
-  '/:id',
+  '/',
   isAuth,
   limiter,
   upload.single('file'),
