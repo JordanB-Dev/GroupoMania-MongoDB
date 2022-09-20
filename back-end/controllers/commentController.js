@@ -4,7 +4,9 @@ const ObjectID = require('mongoose').Types.ObjectId
 module.exports.commentPost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
-
+  if (req.body.commenterId && req.body.commenterId !== req.user._id) {
+    return res.status(403).json('unauthorized request')
+  }
   try {
     return PostModel.findByIdAndUpdate(
       req.params.id,
@@ -31,7 +33,9 @@ module.exports.commentPost = (req, res) => {
 module.exports.editCommentPost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
-
+  if (req.body.commenterId && req.body.commenterId !== req.user._id) {
+    return res.status(403).json('unauthorized request')
+  }
   try {
     return PostModel.findById(req.params.id, (err, docs) => {
       const theComment = docs.comments.find((comment) =>
@@ -54,7 +58,9 @@ module.exports.editCommentPost = (req, res) => {
 module.exports.deleteCommentPost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
-
+  if (req.body.commenterId && req.body.commenterId !== req.user._id) {
+    return res.status(403).json('unauthorized request')
+  }
   try {
     return PostModel.findByIdAndUpdate(
       req.params.id,

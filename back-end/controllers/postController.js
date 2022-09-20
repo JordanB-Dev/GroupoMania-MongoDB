@@ -12,7 +12,7 @@ module.exports.readPost = (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
-  if (req.params.id !== req.user._id) {
+  if (req.body.posterId && req.body.posterId !== req.user._id) {
     return res.status(403).json('unauthorized request')
   }
   let fileName
@@ -63,7 +63,9 @@ module.exports.createPost = async (req, res) => {
 module.exports.updatePost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
-
+  if (req.body.posterId && req.body.posterId !== req.user._id) {
+    return res.status(403).json('unauthorized request')
+  }
   const updatedRecord = {
     message: req.body.message,
   }
@@ -82,6 +84,9 @@ module.exports.updatePost = (req, res) => {
 module.exports.deletePost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
+  if (req.body.posterId && req.body.posterId !== req.user._id) {
+    return res.status(403).json('unauthorized request')
+  }
 
   PostModel.findByIdAndRemove(req.params.id, (err, docs) => {
     if (!err) res.send(docs)
