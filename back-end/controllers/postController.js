@@ -1,8 +1,6 @@
 const PostModel = require('../models/postModel')
 const UserModel = require('../models/userModel')
 const ObjectID = require('mongoose').Types.ObjectId
-const { uploadErrors } = require('../utils/errorsUtils')
-const sharp = require('sharp')
 
 module.exports.readPost = (req, res) => {
   PostModel.find((err, docs) => {
@@ -15,29 +13,11 @@ module.exports.createPost = async (req, res) => {
   if (req.body.posterId && req.body.posterId !== req.user._id) {
     return res.status(403).json('unauthorized request')
   }
-  let fileName
-  try {
-    if (
-      req.file.mimetype != 'image/jpg' &&
-      req.file.mimetype != 'image/png' &&
-      req.file.mimetype != 'image/jpeg'
-    )
-      throw Error('invalid file')
-
-    if (req.file.size > 500000) throw Error('max size')
-  } catch (err) {
-    const errors = uploadErrors(err)
-    return res.status(201).json({ errors })
-  }
-  fileName = req.body.posterId + Date.now() + '.jpg'
-
-  try {
-    await sharp(req.file.buffer).toFile(
-      `${__dirname}/../images/uploads/posts/${fileName}`
-    )
-    res.status(201).send('Photo post uploaded successfully')
-  } catch (err) {
-    res.status(400)
+  let imageUrl
+  if (req.file) {
+    imageUrl = `/images/uploads/posts/${req.file.filename}`
+  } else {
+    picture = null
   }
 
   const newPost = new PostModel({
@@ -45,7 +25,7 @@ module.exports.createPost = async (req, res) => {
     lastname: req.user.lastname,
     firstname: req.user.firstname,
     message: req.body.message,
-    picture: req.file != null ? './uploads/posts/' + fileName : '',
+    picture: imageUrl,
     video: req.body.video,
     likers: [],
     comments: [],
@@ -53,19 +33,19 @@ module.exports.createPost = async (req, res) => {
 
   try {
     const post = await newPost.save()
-
     return res.status(201).json(post)
   } catch (err) {
     return res.status(400)
   }
 }
 
-module.exports.updatePost = (req, res) => {
+module.exports.updatePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
   if (req.body.posterId && req.body.posterId !== req.user._id) {
     return res.status(403).json('unauthorized request')
   }
+
   const updatedRecord = {
     message: req.body.message,
   }
