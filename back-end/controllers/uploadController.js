@@ -3,7 +3,15 @@ const sharp = require('sharp')
 const { uploadErrors } = require('../utils/errorsUtils')
 
 module.exports.uploadProfil = async (req, res) => {
-  const fileName = req.body.name + '.jpg'
+  req.user._id +
+    '_' +
+    req.user.firstname +
+    '_' +
+    req.user.lastname +
+    '_' +
+    Date.now() +
+    '.jpg'
+
   try {
     if (
       req.file.mimetype != 'image/jpg' &&
@@ -32,9 +40,7 @@ module.exports.uploadProfil = async (req, res) => {
       req.body.userId,
       {
         $set: {
-          picture: `${req.protocol}://${req.get(
-            'host'
-          )}/images/uploads/profil/${fileName}`,
+          picture: `/images/uploads/profil/${fileName}`,
         },
       },
       { new: true, upsert: true, setDefaultsOnInsert: true }

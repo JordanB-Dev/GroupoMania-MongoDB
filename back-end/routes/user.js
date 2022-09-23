@@ -4,7 +4,7 @@ const authController = require('../controllers/authController')
 const userController = require('../controllers/userController')
 const uploadController = require('../controllers/uploadController')
 const pwdCtrl = require('../middleware/passwordMiddleware')
-const { isAuth, isAdmin } = require('../middleware/authMiddleware')
+const { isAuth } = require('../middleware/authMiddleware')
 const multer = require('multer')
 const upload = multer()
 
