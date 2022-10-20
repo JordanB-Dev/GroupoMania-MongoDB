@@ -3,16 +3,10 @@ const sharp = require('sharp')
 const { uploadErrors } = require('../utils/errorsUtils')
 
 module.exports.uploadProfil = async (req, res) => {
-  req.user._id +
-    '_' +
-    req.user.firstname +
-    '_' +
-    req.user.lastname +
-    '_' +
-    Date.now() +
-    '.jpg'
-
   try {
+    if (req.body.userId && req.body.userId !== req.user._id) {
+      return res.status(403).json('unauthorized request')
+    }
     if (
       req.file.mimetype != 'image/jpg' &&
       req.file.mimetype != 'image/png' &&
@@ -25,6 +19,9 @@ module.exports.uploadProfil = async (req, res) => {
     const errors = uploadErrors(err)
     return res.status(201).json({ errors })
   }
+
+  const fileName =
+    req.user._id + '_' + req.user.firstname + '_' + req.user.lastname + '.jpg'
 
   try {
     await sharp(req.file.buffer)

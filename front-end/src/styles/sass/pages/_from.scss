@@ -1,0 +1,49 @@
+.welcomePage {
+  background-color: $red;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  justify-content: space-between;
+  height: 80vh;
+
+  .leftBox {
+    display: flex;
+    flex: 0 1 35%;
+    align-items: flex-start;
+    justify-content: flex-end;
+    @include breakpoints(700){
+      margin-left: 10px;
+    }
+  }
+
+    .rightBox {
+      display: flex;
+      flex: 0 1 35%;
+      align-items: flex-start;
+      @include breakpoints(700){
+        margin-right: 10px;
+      }
+    }
+
+      .btn-welcome {
+        border: 2px solid $white;
+        color: $white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        background-color: transparent;
+        font-weight: normal;
+        font-size: 19px;
+        text-align: center;
+        text-decoration: none;
+        margin-top: 150px;
+        @include breakpoints(300){
+          padding: 12px 15px;
+        }
+      }
+
+        .btn-welcome:hover {
+          border: 2px solid $white;
+          color: $red;
+          background-color: $white;
+        }
+}

@@ -43,7 +43,7 @@ app.use(cookieParser())
 
 app.get('*', checkUser)
 app.get('/jwtid', isAuth, (req, res) => {
-  res.status(200).json(res.locals.user.id)
+  res.status(200).json(res.locals.user._id)
 })
 
 app.use('/images', express.static(path.join(__dirname, 'images')))

@@ -1,0 +1,98 @@
+.popup-profil-container {
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    position: fixed;
+    animation: popup 1s forwards;
+
+
+    @keyframes popup {
+      to {
+        backdrop-filter: blur(2px);
+      }
+    }
+
+    .modal {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-100%);
+      background: $white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 2px rgba(131, 130, 130, 0.356);
+      overflow: auto;
+      transform: scaleY(0);
+      transform-origin: center;
+      animation: modal .5s forwards;
+      @include breakpoints(700){
+       padding: 20px;
+    }
+
+      h3 {
+        color: $black;
+        min-width: 200px;
+        margin: 20px;
+      }
+
+      .margin {
+        min-width: 200px;
+        margin-top: 20px;
+      }
+
+      @keyframes modal {
+        to {
+          transform: scale(1) translate(-50%);
+        }
+      }
+
+      .cross {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        transition: 0.1s;
+        color: $black;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.07);
+        }
+      }
+      form {
+        input {
+          padding: 10px 40px;
+          margin: 0;
+          font-size: 1.2rem;
+          border: 2px solid $black;
+          border-radius: 20px;
+          @include breakpoints(700){
+            padding: 10px 20px;
+         }
+
+          &:focus {
+            box-shadow: 0 0 3px rgba(51, 51, 51, 0.2);
+          }
+        }
+        input[type="submit"] {
+          margin: 5px 0;
+          float: right;
+          background: lighten($red, 20%);
+          color: $white;
+          cursor: pointer;
+          border: 2px solid transparent;
+          transition: 0.2s;
+          padding: 10px 20px;
+          font-size: 1.2rem;
+          border-radius: 20px 6px 20px 20px;
+
+          &:hover {
+            letter-spacing: 1px;
+            background: $red;
+            font-weight: 600;
+          }
+        }
+      }
+  }
+}

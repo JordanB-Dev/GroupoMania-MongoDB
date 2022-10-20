@@ -1,0 +1,8 @@
+.home {
+margin: 50px auto 50px;
+@include breakpoints(700) {
+    margin: 30px auto 30px;
+  }
+}
+
+    

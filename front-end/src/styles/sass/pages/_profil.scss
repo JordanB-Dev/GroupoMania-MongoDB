@@ -1,0 +1,290 @@
+.profil-page {
+    margin: 80px auto 0;
+    @include breakpoints(700){
+      margin: 30px auto 0;
+    }
+
+    h1 {
+        text-align: center;
+        color: $white;
+        margin: 10px 0 6px;
+        @include breakpoints(700){
+          font-size: 1.6em;
+        }
+      }
+      .update-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    
+        @include breakpoints(700){
+          grid-template-columns: 1fr;
+        }
+    
+        > div {
+          background: $color-4;
+          border-radius: 20px;
+          padding: 25px;
+          margin: 20px 10px;
+    
+          @include breakpoints(700) {
+            margin: 10px 10px;
+          }
+        }
+        .left-part {
+          text-align: center;
+    
+          h3 {
+            margin-bottom: 12px;
+          }
+    
+          img {
+            height: 180px;
+            width: 180px;
+            border-radius: 46px;
+            object-fit: cover;
+            margin-bottom: 30px;
+            box-shadow: 0 0 6px rgba(51, 51, 51, 0.363);
+            z-index: 1;
+          }
+          .img-visu {
+            position: relative;
+            height: 182px;
+            width: 182px;
+            border-radius: 46px;
+            object-fit: cover;
+            margin-bottom: 30px;
+            box-shadow: 0 0 6px rgba(51, 51, 51, 0.363);
+            z-index: 2;
+          }
+          form {
+            position: relative;
+    
+            label {
+              position: absolute;
+              transform: translate(-50%, -50%);
+              width: 40%;
+              background: lighten($red, 20%);
+              color: $white;
+              border-radius: 20px;
+              border: 3px solid transparent;
+              display: inline-block;
+              padding: 9px 0;
+              transition: 0.2s;
+              font-size: 1.2em;
+              z-index: 10;
+              cursor: pointer;
+              margin-top: 10px;
+              @include breakpoints(700){
+                font-size: 1em;
+              }
+              &:hover {
+                letter-spacing: 1px;
+                background: $red;
+                font-weight: 600;
+              }
+            }
+                
+
+            input[type="file"] {
+              display: none;
+            }
+            input[type="submit"] {
+              cursor: pointer;
+              font-size: 1.2em;
+              background: lighten($black, 20%);
+              color: $white;
+              width: 40%;
+              display: inline-block;
+              padding: 9px 0;
+              transition: 0.2s;
+              margin-top: 10px;
+              border: 3px solid transparent;
+              border-radius: 20px;
+              margin-top: 30px;
+              @include breakpoints(700){
+                font-size: 1em;
+              }
+    
+              &:hover {
+                letter-spacing: 1px;
+                background: $black;
+                font-weight: 600;
+              }
+            }
+          }
+          p {
+            color: red;
+            margin-top: 6px;
+          }
+        }
+        .right-part {
+          text-align: center;
+          padding: 20px 40px;
+          h3 {
+            margin-bottom: 12px;
+          }
+          p,
+          textarea {
+            min-height: 80px;
+            border: 2px solid $red;
+            border-radius: 20px 20px 6px 20px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+          }
+          textarea {
+            width: 100%;
+            margin-bottom: -6px;
+            font-size: 1.2rem;
+          }
+          .btn_update {
+            margin: 5px 0;
+            float: right;
+            background: lighten($black, 20%);
+            color: $white;
+            cursor: pointer;
+            transition: 0.2s;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border-radius: 20px 6px 20px 20px;
+
+            &:hover {
+              letter-spacing: 1px;
+              background: $black;
+              font-weight: 600;
+            }
+          }
+      
+          h4 {
+            margin: 60px 0 10px;
+          }
+          h5 {
+            background: $color-1;
+            color: $color-4;
+            margin: 20px 0;
+            padding: 12px;
+            font-size: 1.1rem;
+            border-radius: 20px;
+            transition: 0.2s;
+            cursor: pointer;
+    
+            &:hover {
+              filter: brightness(110%);
+              transform: translateX(2px);
+            }
+          }
+
+          .btn-container {        
+            display: grid;
+            grid-template-columns: 50% 50%;
+        
+            @include breakpoints(1251){
+              grid-template-columns: 1fr;
+            }
+            
+          &_firstname{
+            margin: 10px;
+            float: center;
+            background: lighten($red, 20%);
+            color: $white;
+            cursor: pointer;
+            transition: 0.2s;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border-radius: 20px;
+  
+            &:hover {
+              letter-spacing: 1px;
+              background: $red;
+              font-weight: 600;
+            }
+            }
+
+            &_lastname {
+              margin: 10px;
+              float: center;
+              background: lighten($black, 20%);
+              color: $white;
+              cursor: pointer;
+              transition: 0.2s;
+              padding: 10px 20px;
+              font-size: 1.1rem;
+              border-radius: 20px;
+    
+              &:hover {
+                letter-spacing: 1px;
+                background: $black;
+                font-weight: 600;
+              }
+              }
+              
+            &_email {
+              margin: 10px;
+              float: center;
+              background: lighten($black, 20%);
+              color: $white;
+              cursor: pointer;
+              transition: 0.2s;
+              padding: 10px 20px;
+              font-size: 1.1rem;
+              border-radius: 20px;
+              @include breakpoints(1251){
+                background: lighten($red, 20%);
+              }
+
+              &:hover {
+                letter-spacing: 1px;
+                background: $black;
+                font-weight: 600;
+                @include breakpoints(1251){
+                  background: $red;
+                }
+              }
+              }
+
+              &_delete {
+                margin: 10px;
+                float: center;
+                background: lighten($red, 20%);
+                color: $white;
+                cursor: pointer;
+                transition: 0.2s;
+                padding: 10px 20px;
+                font-size: 1.1rem;
+                border-radius: 20px;
+                @include breakpoints(1251){
+                  background: lighten($black, 20%);
+                }
+                &:hover {
+                  letter-spacing: 1px;
+                  background: $red;
+                  font-weight: 600;
+                  @include breakpoints(1251){
+                    background: $black;
+                  }
+                }
+            }
+
+              &_password {
+                margin: 10px;
+                float: center;
+                background: lighten($red, 20%);
+                color: $white;
+                cursor: pointer;
+                transition: 0.2s;
+                padding: 10px 20px;
+                font-size: 1.1rem;
+                border-radius: 20px;
+      
+                &:hover {
+                  letter-spacing: 1px;
+                  background: $red;
+                  font-weight: 600;
+                }
+                }
+                
+          }
+        }
+      }
+    }
+
+    

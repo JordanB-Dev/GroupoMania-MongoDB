@@ -15,7 +15,7 @@ module.exports.createPost = async (req, res) => {
   }
   let imageUrl
   if (req.file) {
-    imageUrl = `/images/uploads/posts/${req.file.filename}`
+    imageUrl = `./uploads/posts/${req.file.filename}`
   } else {
     picture = null
   }

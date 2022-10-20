@@ -1,0 +1,32 @@
+.dropdown_section {
+  position: absolute;
+  top: 5px;
+  right: -10px;
+  width: 50px;
+
+}
+
+.dropdown_section > .dropdown {
+    width: 30px;
+}
+
+.dropdown {
+    &_header {
+    align-items: center;
+    background-color: $white;
+    border-radius: 10px;
+    display: inline-flex;
+    height: 50px;
+    min-height: 50px;
+    width: 100%;
+  }
+  
+  &_fleche {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 7px;
+    height: 20px;
+    width: 100%;
+  }
+
+}

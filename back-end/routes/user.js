@@ -22,6 +22,11 @@ router.get('/:id', isAuth, userController.getOneUser)
 router.put('/:id', isAuth, limiter, userController.updateUser)
 router.delete('/:id', isAuth, userController.deleteUser)
 
-router.post('/upload', upload.single('file'), uploadController.uploadProfil)
+router.post(
+  '/upload',
+  isAuth,
+  upload.single('file'),
+  uploadController.uploadProfil
+)
 
 module.exports = router

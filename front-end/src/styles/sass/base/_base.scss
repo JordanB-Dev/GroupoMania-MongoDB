@@ -1,0 +1,93 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+
+}
+a,
+a:visited {
+  color: $white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(images/bg-noise-texture.png);
+  background-repeat: repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Lato", sans-serif;
+}
+main {
+  flex-grow: 1;
+}
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+}
+
+.centertext {
+  text-align: center;
+}
+
+.formContent button {
+  margin-left: 0;
+  display: block;
+  margin: 0 auto 20px;
+  min-width: 150px;
+  color: $black;
+  padding: 7px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.formContent button:hover {
+  background-color: $red;
+  color: $white;
+  cursor: pointer;
+}
+
+button:disabled,
+button[disabled],
+button:disabled:hover,
+button[disabled]:hover {
+  border: 1px solid $light-grey-color;
+  background-color: $light-grey-color;
+  color: $dark-grey-color;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.linkContainer {
+  height: 50px;
+  margin-top: 35px;
+  padding-top: 15px;
+
+
+
+  .simpleLink {
+    color: $white;
+    text-decoration: none;
+    font-size: 1.2em;
+    @include breakpoints(700){
+      font-size: 0.9em;
+    }
+  }
+
+    .simpleLink:hover {
+      color: $red;
+    }
+}
