@@ -20,8 +20,6 @@ module.exports.createPost = async (req, res) => {
 
   const newPost = new PostModel({
     posterId: req.body.posterId,
-    lastname: req.user.lastname,
-    firstname: req.user.firstname,
     message: req.body.message,
     picture: imageUrl,
     video: req.body.video,
@@ -56,8 +54,6 @@ module.exports.updatePost = async (req, res) => {
 
   const updatedRecord = {
     message: req.body.message,
-    lastname: req.body.lastname,
-    firstname: req.body.firstname,
     picture: newImageUrl,
   }
 
