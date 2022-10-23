@@ -28,12 +28,12 @@ export default function useReducer(state = initialState, action) {
     case UPDATE_FIRSTNAME:
       return {
         ...state,
-        firstName: action.payload,
+        firstname: action.payload,
       }
     case UPDATE_LASTNAME:
       return {
         ...state,
-        lastName: action.payload,
+        lastname: action.payload,
       }
     case UPDATE_EMAIL:
       return {
@@ -46,7 +46,7 @@ export default function useReducer(state = initialState, action) {
         password: action.payload,
       }
     case DELETE_ACCOUNT:
-      return state.filter((user) => user.id !== action.payload.id)
+      return state.filter((user) => user._id !== action.payload.id)
 
     default:
       return state

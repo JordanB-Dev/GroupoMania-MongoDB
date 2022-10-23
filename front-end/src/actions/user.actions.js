@@ -6,8 +6,8 @@ export const UPDATE_BIO = 'UPDATE_BIO'
 export const UPDATE_FIRSTNAME = 'UPDATE_FIRSTNAME'
 export const UPDATE_LASTNAME = 'UPDATE_LASTNAME'
 export const UPDATE_EMAIL = 'UPDATE_EMAIL'
-export const DELETE_ACCOUNT = 'DELETE_ACCOUNT'
 export const UPDATE_PASSWORD = 'UPDATE_PASSWORD'
+export const DELETE_ACCOUNT = 'DELETE_ACCOUNT'
 
 export const getUser = (uid) => {
   return async (dispatch) => {
@@ -29,7 +29,7 @@ export const uploadPicture = (data, id) => {
     try {
       await axios({
         method: 'post',
-        url: `${process.env.REACT_APP_API_URL}api/user/upload/${id}`,
+        url: `${process.env.REACT_APP_API_URL}api/user/upload`,
         withCredentials: true,
         data,
       })
@@ -61,32 +61,32 @@ export const updateBio = (id, bio) => {
   }
 }
 
-export const updateFirstName = (id, firstName) => {
+export const updateFirstName = (id, firstname) => {
   return async (dispatch) => {
     try {
       await axios({
         method: 'put',
         url: `${process.env.REACT_APP_API_URL}api/user/${id}`,
         withCredentials: true,
-        data: { firstName },
+        data: { firstname },
       })
-      dispatch({ type: UPDATE_FIRSTNAME, payload: firstName })
+      dispatch({ type: UPDATE_FIRSTNAME, payload: firstname })
     } catch (err) {
       return console.log(err)
     }
   }
 }
 
-export const updateLastName = (id, lastName) => {
+export const updateLastName = (id, lastname) => {
   return async (dispatch) => {
     try {
       await axios({
         method: 'put',
         url: `${process.env.REACT_APP_API_URL}api/user/${id}`,
         withCredentials: true,
-        data: { lastName },
+        data: { lastname },
       })
-      dispatch({ type: UPDATE_LASTNAME, payload: lastName })
+      dispatch({ type: UPDATE_LASTNAME, payload: lastname })
     } catch (err) {
       return console.log(err)
     }
@@ -109,6 +109,22 @@ export const updateEmail = (id, email) => {
   }
 }
 
+export const updatePassword = (id, password) => {
+  return async (dispatch) => {
+    try {
+      await axios({
+        method: 'put',
+        url: `${process.env.REACT_APP_API_URL}api/user/${id}`,
+        withCredentials: true,
+        data: { password },
+      })
+      dispatch({ type: UPDATE_PASSWORD, payload: password })
+    } catch (err) {
+      return console.log(err)
+    }
+  }
+}
+
 export const deleteAccount = (id) => {
   return async (dispatch) => {
     try {
@@ -120,22 +136,6 @@ export const deleteAccount = (id) => {
       dispatch({ type: DELETE_ACCOUNT, payload: { id } })
     } catch (error) {
       return console.log(error)
-    }
-  }
-}
-
-export const updatePassword = (id, password) => {
-  return async (dispatch) => {
-    try {
-      await axios({
-        method: 'put',
-        url: `${process.env.REACT_APP_API_URL}api/user/password/${id}`,
-        withCredentials: true,
-        data: { password },
-      })
-      dispatch({ type: UPDATE_PASSWORD, payload: password })
-    } catch (err) {
-      return console.log(err)
     }
   }
 }

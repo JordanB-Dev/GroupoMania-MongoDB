@@ -14,8 +14,6 @@ module.exports.commentPost = (req, res) => {
         $push: {
           comments: {
             commenterId: req.body.commenterId,
-            commenterFirstname: req.body.commenterFirstname,
-            commenterLastname: req.body.commenterLastname,
             text: req.body.text,
             timestamp: new Date().getTime(),
           },

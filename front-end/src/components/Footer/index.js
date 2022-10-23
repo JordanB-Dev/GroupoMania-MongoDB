@@ -3,9 +3,7 @@ const Footer = () => {
     <footer>
       <div className="footer-container container">
         <p>
-          <a href="https://github.com/JordanB-Dev/P7_Groupomania_MYSQL">
-            © 2022 - Jordan Bachelez
-          </a>
+          <a href="https://github.com/JordanB-Dev/">© 2022 - Jordan Bachelez</a>
         </p>
       </div>
     </footer>

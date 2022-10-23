@@ -26,7 +26,7 @@ module.exports.uploadProfil = async (req, res) => {
   try {
     await sharp(req.file.buffer)
       .resize({ width: 150, height: 150 })
-      .toFile(`${__dirname}/../images/uploads/profil/${fileName}`)
+      .toFile(`${__dirname}/../../front-end/public/uploads/profil/${fileName}`)
     res.status(201).send('Photo de profil chargé avec succés')
   } catch (err) {
     res.status(400).send(err)
@@ -37,7 +37,7 @@ module.exports.uploadProfil = async (req, res) => {
       req.body.userId,
       {
         $set: {
-          picture: `/images/uploads/profil/${fileName}`,
+          picture: `/uploads/profil/${fileName}`,
         },
       },
       { new: true, upsert: true, setDefaultsOnInsert: true }

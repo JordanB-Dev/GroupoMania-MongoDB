@@ -13,7 +13,7 @@ const limiter = raterLimit({
 
 router.get('/', isAuth, postController.readPost)
 router.post('/', isAuth, multerPost, postController.createPost)
-router.put('/:id', isAuth, limiter, postController.updatePost)
+router.put('/:id', isAuth, limiter, multerPost, postController.updatePost)
 router.delete('/:id', isAuth, limiter, postController.deletePost)
 router.patch('/like/:id', isAuth, postController.likePost)
 router.patch('/unlike/:id', isAuth, postController.unlikePost)

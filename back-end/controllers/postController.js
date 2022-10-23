@@ -1,6 +1,7 @@
 const PostModel = require('../models/postModel')
 const UserModel = require('../models/userModel')
 const ObjectID = require('mongoose').Types.ObjectId
+const fs = require('fs')
 
 module.exports.readPost = (req, res) => {
   PostModel.find((err, docs) => {
@@ -10,9 +11,6 @@ module.exports.readPost = (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
-  if (req.body.posterId && req.body.posterId !== req.user._id) {
-    return res.status(403).json('unauthorized request')
-  }
   let imageUrl
   if (req.file) {
     imageUrl = `./uploads/posts/${req.file.filename}`
@@ -22,8 +20,6 @@ module.exports.createPost = async (req, res) => {
 
   const newPost = new PostModel({
     posterId: req.body.posterId,
-    lastname: req.user.lastname,
-    firstname: req.user.firstname,
     message: req.body.message,
     picture: imageUrl,
     video: req.body.video,
@@ -46,8 +42,19 @@ module.exports.updatePost = async (req, res) => {
     return res.status(403).json('unauthorized request')
   }
 
+  let newImageUrl
+
+  if (req.file) {
+    newImageUrl = `./uploads/posts/${req.file.filename}`
+  }
+
+  if (newImageUrl && req.picture) {
+    req.picture.split(`${__dirname}/../../front-end/public/uploads/posts/`)[1]
+  }
+
   const updatedRecord = {
     message: req.body.message,
+    picture: newImageUrl,
   }
 
   PostModel.findByIdAndUpdate(

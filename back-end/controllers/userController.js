@@ -1,5 +1,6 @@
 const UserModel = require('../models/userModel')
 const ObjectID = require('mongoose').Types.ObjectId
+const bcrypt = require('bcrypt')
 
 module.exports.getAllUsers = async (req, res) => {
   const users = await UserModel.find().select(['-password', '-email'])
@@ -24,19 +25,22 @@ module.exports.updateUser = async (req, res) => {
     if (req.params.id !== req.user._id) {
       return res.status(403).json('unauthorized request')
     }
+    const { firstname, lastname, email, password, bio } = req.body
+    const hashedPwd = await bcrypt.hash(password, 10)
+
     await UserModel.findOneAndUpdate(
       { _id: req.params.id },
       {
         $set: {
-          firstname: req.body.firstname,
-          lastname: req.body.lastname,
-          email: req.body.email,
-          bio: req.body.bio,
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          bio: bio,
+          password: hashedPwd,
         },
       },
       { new: true, upsert: true, setDefaultsOnInsert: true }
     )
-      .select(['-password', '-email'])
       .then((data) => res.send(data))
       .catch((err) => res.status(500).send({ message: err }))
   } catch (err) {
@@ -52,7 +56,8 @@ module.exports.deleteUser = async (req, res) => {
     if (req.params.id !== req.user._id) {
       return res.status(403).json('unauthorized request')
     }
-    await UserModel.remove({ _id: req.params.id }).exec()
+    await UserModel.deleteOne({ _id: req.params.id }).exec()
+    res.cookie('jwt', '', { maxAge: 1 })
     res.status(200).json({ message: 'Successfully deleted. ' })
   } catch (err) {
     return res.status(500).json({ message: err })

@@ -1,6 +1,7 @@
 const express = require('express')
 const userRoutes = require('./routes/user')
 const postRoutes = require('./routes/post')
+const adminRoutes = require('./routes/admin')
 const helmet = require('helmet')
 const cookieParser = require('cookie-parser')
 const path = require('path')
@@ -51,5 +52,6 @@ app.use(express.static('images'))
 
 app.use('/api/user', userRoutes)
 app.use('/api/post', postRoutes)
+app.use('/api/admin', adminRoutes)
 
 module.exports = app
