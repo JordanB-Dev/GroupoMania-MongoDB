@@ -54,10 +54,11 @@ const SignInForm = () => {
       ) : (
         <div className="slContainer container">
           <div className="formBoxRight">
+            <div className="email error centertext"></div>
+            <div className="password error centertext"></div>
             <div className="formContent">
               <h2>Connexion</h2>
               <form action="" onSubmit={handleLogin} id="sign-up-form">
-                <div className="email error centertext"></div>
                 <div className="inputBox">
                   <input
                     onChange={(e) => setEmail(e.target.value)}
@@ -73,7 +74,6 @@ const SignInForm = () => {
                 </div>
 
                 <div className="inputBox">
-                  <div className="password error centertext"></div>
                   <input
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}

@@ -48,7 +48,7 @@ module.exports.updateUser = async (req, res) => {
   }
 }
 
-module.exports.deleteUser = async (req, res) => {
+module.exports.disabledAccound = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
 
@@ -56,9 +56,40 @@ module.exports.deleteUser = async (req, res) => {
     if (req.params.id !== req.user._id) {
       return res.status(403).json('unauthorized request')
     }
-    await UserModel.deleteOne({ _id: req.params.id }).exec()
-    res.cookie('jwt', '', { maxAge: 1 })
-    res.status(200).json({ message: 'Successfully deleted. ' })
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          isAccound: false,
+        },
+      },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
+  } catch (err) {
+    return res.status(500).json({ message: err })
+  }
+}
+
+module.exports.activeAccound = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send('ID unknown : ' + req.params.id)
+
+  try {
+    if (req.params.id !== req.user._id) {
+      return res.status(403).json('unauthorized request')
+    }
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          isAccound: true,
+        },
+      }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
   } catch (err) {
     return res.status(500).json({ message: err })
   }

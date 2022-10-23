@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  deleteAccount,
+  disabledAccound,
   updateBio,
   updateEmail,
   updateFirstName,
@@ -99,8 +99,8 @@ const UpdateProfil = () => {
     setEmailUpdate(true)
   }
 
-  const handleDelete = () => {
-    dispatch(deleteAccount(userData._id))
+  const handleDisabled = () => {
+    dispatch(disabledAccound(userData._id))
   }
 
   const checkPassword = (password) => {
@@ -208,15 +208,15 @@ const UpdateProfil = () => {
               </button>
 
               <button
-                className="btn-container_delete"
+                className="btn-container_disabled"
                 onClick={() => {
-                  if (window.confirm('Voulez-vous supprimer votre compte ?')) {
-                    handleDelete()
-                    window.location.href = '/login'
+                  if (window.confirm('Voulez-vous désactiver votre compte ?')) {
+                    handleDisabled()
+                    window.location.href = '/home'
                   }
                 }}
               >
-                Supprimer le compte
+                Désactiver le compte
               </button>
               <button
                 className="btn-container_password"

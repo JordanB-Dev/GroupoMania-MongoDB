@@ -7,7 +7,8 @@ export const UPDATE_FIRSTNAME = 'UPDATE_FIRSTNAME'
 export const UPDATE_LASTNAME = 'UPDATE_LASTNAME'
 export const UPDATE_EMAIL = 'UPDATE_EMAIL'
 export const UPDATE_PASSWORD = 'UPDATE_PASSWORD'
-export const DELETE_ACCOUNT = 'DELETE_ACCOUNT'
+export const DISABLED_ACCOUNT = 'DELETE_ACCOUNT'
+export const ACTIVE_ACCOUNT = 'ACTIVE_ACCOUNT'
 
 export const getUser = (uid) => {
   return async (dispatch) => {
@@ -125,15 +126,30 @@ export const updatePassword = (id, password) => {
   }
 }
 
-export const deleteAccount = (id) => {
+export const disabledAccound = (id) => {
   return async (dispatch) => {
     try {
       await axios({
-        method: 'delete',
-        url: `${process.env.REACT_APP_API_URL}api/user/${id}`,
+        method: 'post',
+        url: `${process.env.REACT_APP_API_URL}api/user/disabled/${id}`,
         withCredentials: true,
       })
-      dispatch({ type: DELETE_ACCOUNT, payload: { id } })
+      dispatch({ type: DISABLED_ACCOUNT, payload: { id } })
+    } catch (error) {
+      return console.log(error)
+    }
+  }
+}
+
+export const activeAccound = (id) => {
+  return async (dispatch) => {
+    try {
+      await axios({
+        method: 'post',
+        url: `${process.env.REACT_APP_API_URL}api/user/active/${id}`,
+        withCredentials: true,
+      })
+      dispatch({ type: ACTIVE_ACCOUNT, payload: { id } })
     } catch (error) {
       return console.log(error)
     }

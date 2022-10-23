@@ -18,16 +18,22 @@ const Navbar = () => {
         </div>
         {uid ? (
           <Fragment>
-            <ul>
-              <li className="welcome">
-                <NavLink to="/profil">
-                  <h5>
-                    Bienvenue {userData.firstname} {userData.lastname}
-                  </h5>
-                </NavLink>
-              </li>
-            </ul>
-            <Logout />
+            {userData.isAccound === true || userData.isAdmin === true ? (
+              <Fragment>
+                <ul>
+                  <li className="welcome">
+                    <NavLink to="/profil">
+                      <h5>
+                        Bienvenue {userData.firstname} {userData.lastname}
+                      </h5>
+                    </NavLink>
+                  </li>
+                </ul>
+                <Logout />
+              </Fragment>
+            ) : (
+              <></>
+            )}
           </Fragment>
         ) : (
           <></>

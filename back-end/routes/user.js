@@ -20,7 +20,8 @@ router.get('/logout', authController.logout)
 router.get('/', isAuth, userController.getAllUsers)
 router.get('/:id', isAuth, userController.getOneUser)
 router.put('/:id', isAuth, limiter, userController.updateUser)
-router.delete('/:id', isAuth, userController.deleteUser)
+router.post('/disabled/:id', isAuth, userController.disabledAccound)
+router.post('/active/:id', isAuth, userController.activeAccound)
 
 router.post(
   '/upload',

@@ -21,7 +21,7 @@
         }
     
         > div {
-          background: $color-4;
+          background: $white;
           border-radius: 20px;
           padding: 25px;
           margin: 20px 10px;
@@ -158,8 +158,8 @@
             margin: 60px 0 10px;
           }
           h5 {
-            background: $color-1;
-            color: $color-4;
+            background: $black;
+            color: $white;
             margin: 20px 0;
             padding: 12px;
             font-size: 1.1rem;
@@ -241,7 +241,7 @@
               }
               }
 
-              &_delete {
+              &_disabled {
                 margin: 10px;
                 float: center;
                 background: lighten($red, 20%);

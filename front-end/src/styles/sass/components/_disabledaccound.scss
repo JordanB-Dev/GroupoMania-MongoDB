@@ -1,0 +1,73 @@
+.disabled_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    color: $red;
+    background: $white;
+    min-height: calc(100vh - 200px);
+
+    
+    &_quatreCent {
+        font-size: 288px;
+        line-height: 136px;
+    }
+    
+        &_introuvable {
+            font-size: 36px;
+            margin: 10px;
+        }
+
+            &_disabled {
+                margin: 10px;
+     
+                background: lighten($black, 20%);
+                color: $white;
+                cursor: pointer;
+                transition: 0.2s;
+                padding: 10px 20px;
+                font-size: 1.1rem;
+                border-radius: 20px;
+
+                &:hover {
+                letter-spacing: 1px;
+                background: $black;
+                font-weight: 600;
+                }
+            }
+
+                &_logout {
+                    margin: 10px;
+                    float: center;
+                    background: lighten($red, 20%);
+                    color: $white;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    padding: 10px 20px;
+                    font-size: 1.1rem;
+                    border-radius: 20px;
+
+        
+                    &:hover {
+                    letter-spacing: 1px;
+                    background: $red;
+                    font-weight: 600;
+                    }
+                    }
+}
+
+@include breakpoints(850) { 
+    .error_page {
+        margin-bottom: 51px;
+        &_quatreCent {
+            font-size: 96px;
+        }
+            &_introuvable {
+                font-size: 18px;
+            }
+                &_link {
+                    font-size: 14px;
+                }
+    }
+}
