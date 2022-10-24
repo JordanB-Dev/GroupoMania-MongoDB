@@ -16,17 +16,21 @@ const Logout = () => {
     })
       .then(() => removeCookie('jwt'))
       .catch((err) => console.log(err))
-    setTimeout(() => {
-      window.location = '/login'
-    }, 1000)
+    window.location = '/login'
   }
 
   return (
     <div className="logoutContainer">
-      <label className="switch">
-        <input onClick={logout} type="checkbox" />
-        <span className="slider round"></span>
-      </label>
+      <div
+        onClick={() => {
+          if (window.confirm('Voulez-vous déconnecter de votre compte ?')) {
+            logout()
+          }
+        }}
+        className="switch"
+      >
+        <img src="./img/icons/logout.svg" alt="logout" />
+      </div>
     </div>
   )
 }

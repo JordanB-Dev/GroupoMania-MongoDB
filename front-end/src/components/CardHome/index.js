@@ -135,7 +135,7 @@ const CardHome = ({ post }) => {
                     </a>
                   </div>
                   {open && (
-                    <>
+                    <div className="margin-bottom">
                       <div className="button-container">
                         <div
                           onClick={() => {
@@ -157,7 +157,7 @@ const CardHome = ({ post }) => {
                         </div>
                         <DeletePost id={post._id} />
                       </div>
-                    </>
+                    </div>
                   )}
                 </div>
               </div>

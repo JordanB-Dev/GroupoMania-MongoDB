@@ -30,6 +30,20 @@ const Navbar = () => {
                   </li>
                 </ul>
                 <Logout />
+                <div className="HomeContainer">
+                  <div className="switch">
+                    <NavLink to="/home">
+                      <img src="./img/icons/home.svg" alt="home" />
+                    </NavLink>
+                  </div>
+                </div>
+                <div className="ProfilContainer">
+                  <div className="switch">
+                    <NavLink to="/profil">
+                      <img src="./img/icons/personal-data-39.svg" alt="home" />
+                    </NavLink>
+                  </div>
+                </div>
               </Fragment>
             ) : (
               <></>

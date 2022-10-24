@@ -3,6 +3,7 @@
   top: 5px;
   right: -10px;
   width: 50px;
+  z-index: 10000;
 
 }
 
@@ -16,8 +17,7 @@
     background-color: $white;
     border-radius: 10px;
     display: inline-flex;
-    height: 50px;
-    min-height: 50px;
+    height: 45px;
     width: 100%;
   }
   
