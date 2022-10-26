@@ -36,7 +36,7 @@ const UpdatePicture = () => {
           type="file"
           id="file"
           name="file"
-          accept=".jpg, .jpeg, .png, .gif"
+          accept=".jpg, .jpeg, .png"
           onChange={(e) => handlePicture(e)}
         />
         <br />

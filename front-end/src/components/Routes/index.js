@@ -6,6 +6,7 @@ import SignUp from '../Signup'
 import Home from '../../pages/Home'
 import Profil from '../../pages/Profil'
 import Footer from '../Footer'
+import ErrorPage from '../../pages/ErrorPage'
 
 const routes = () => {
   return (
@@ -17,6 +18,7 @@ const routes = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
         <Route path="/profil" element={<Profil />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </div>
