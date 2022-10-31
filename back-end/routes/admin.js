@@ -3,22 +3,14 @@ const adminController = require('../controllers/adminController')
 const multerPost = require('../middleware/multerPost')
 const { isAuth, isAdmin } = require('../middleware/authMiddleware')
 
-const raterLimit = require('express-rate-limit')
+router.put('/user/:id', isAuth, isAdmin, adminController.updateUser)
+router.patch('/user/:id', isAuth, isAdmin, adminController.updatePassword)
+router.post('/user/:id', isAuth, isAdmin, adminController.updatePicture)
+router.post('/user/ban/:id', isAuth, isAdmin, adminController.banAccound)
+router.post('/user/unban/:id', isAuth, isAdmin, adminController.unBanAccound)
 
-const limiter = raterLimit({
-  windowMs: 5 * 60 * 1000,
-  max: 25,
-})
-
-router.put(
-  '/post/:id',
-  isAuth,
-  isAdmin,
-  multerPost,
-  limiter,
-  adminController.updatePost
-)
-router.delete('/post/:id', isAuth, isAdmin, limiter, adminController.deletePost)
+router.put('/post/:id', isAuth, isAdmin, multerPost, adminController.updatePost)
+router.delete('/post/:id', isAuth, isAdmin, adminController.deletePost)
 
 router.patch(
   '/comment-delete/:id',

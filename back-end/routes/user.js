@@ -20,6 +20,7 @@ router.get('/logout', authController.logout)
 router.get('/', isAuth, userController.getAllUsers)
 router.get('/:id', isAuth, userController.getOneUser)
 router.put('/:id', isAuth, limiter, userController.updateUser)
+router.patch('/:id', isAuth, limiter, userController.updatePassword)
 router.post('/disabled/:id', isAuth, userController.disabledAccound)
 router.post('/active/:id', isAuth, userController.activeAccound)
 

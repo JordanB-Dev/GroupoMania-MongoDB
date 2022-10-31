@@ -16,7 +16,7 @@
 
     .modal {
       position: absolute;
-      top: 10%;
+      top: 20%;
       left: 50%;
       transform: translate(-100%);
       background: $white;
@@ -29,6 +29,37 @@
       animation: modal .5s forwards;
       @include breakpoints(700){
        padding: 20px;
+    }
+    p,
+    textarea {
+      min-height: 80px;
+      border: 2px solid $red;
+      border-radius: 20px 20px 6px 20px;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+    }
+    textarea {
+      width: 100%;
+      margin-bottom: -6px;
+      font-size: 1.2rem;
+    }
+    .btn_update {
+      margin: 5px 0;
+      float: right;
+      background: lighten($black, 20%);
+      color: $white;
+      cursor: pointer;
+      transition: 0.2s;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      border-radius: 20px 6px 20px 20px;
+
+      &:hover {
+        letter-spacing: 1px;
+        background: $black;
+        font-weight: 600;
+   
+      }
     }
 
       h3 {

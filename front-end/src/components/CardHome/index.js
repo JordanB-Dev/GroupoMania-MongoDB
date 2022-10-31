@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { dateParser, isEmpty } from '../Utils'
 import LikePost from '../LikePost'
 import DeletePost from '../DeletePost'
@@ -81,42 +82,48 @@ const CardHome = ({ post }) => {
       ) : (
         <Fragment>
           <div className="card_home_left">
-            <img
-              src={
-                !isEmpty(usersData[0]) &&
-                usersData
-                  .map((user) => {
-                    if (user._id === post.posterId) return user.picture
-                    else return null
-                  })
-                  .join('')
-              }
-              alt="poster-pic"
-            />
+            <Link to={`/wall?id=${post.posterId}`}>
+              <img
+                src={
+                  !isEmpty(usersData[0]) &&
+                  usersData
+                    .map((user) => {
+                      if (user._id === post.posterId) return user.picture
+                      else return null
+                    })
+                    .join('')
+                }
+                alt="poster-pic"
+              />
+            </Link>
           </div>
           <div className="card_home_right">
             <div className="card_home_right_header">
               <div className="card_home_right_header--name">
-                <h3>
-                  {!isEmpty(usersData[0]) &&
-                    usersData
-                      .map((user) => {
-                        if (user._id === post.posterId) return user.firstname
-                        else return null
-                      })
-                      .join('')}
-                </h3>
-
-                <h3 className="margin">
-                  {!isEmpty(usersData[0]) &&
-                    usersData
-                      .map((user) => {
-                        if (user._id === post.posterId) return user.lastname
-                        else return null
-                      })
-                      .join('')}
-                </h3>
+                <Link to={`/wall?id=${post.posterId}`}>
+                  <h3>
+                    {!isEmpty(usersData[0]) &&
+                      usersData
+                        .map((user) => {
+                          if (user._id === post.posterId) return user.firstname
+                          else return null
+                        })
+                        .join('')}
+                  </h3>
+                </Link>
+                <Link to={`/wall?id=${post.posterId}`}>
+                  <h3 className="margin">
+                    {!isEmpty(usersData[0]) &&
+                      usersData
+                        .map((user) => {
+                          if (user._id === post.posterId) return user.lastname
+                          else return null
+                        })
+                        .join('')}
+                  </h3>
+                </Link>
               </div>
+
               <span>{dateParser(post.createdAt)}</span>
             </div>
             {userData._id === post.posterId && (

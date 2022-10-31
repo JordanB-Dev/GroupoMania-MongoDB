@@ -25,8 +25,7 @@ module.exports.updateUser = async (req, res) => {
     if (req.params.id !== req.user._id) {
       return res.status(403).json('unauthorized request')
     }
-    const { firstname, lastname, email, password, bio } = req.body
-    const hashedPwd = await bcrypt.hash(password, 10)
+    const { firstname, lastname, email, bio } = req.body
 
     await UserModel.findOneAndUpdate(
       { _id: req.params.id },
@@ -36,6 +35,31 @@ module.exports.updateUser = async (req, res) => {
           lastname: lastname,
           email: email,
           bio: bio,
+        },
+      },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
+  } catch (err) {
+    return res.status(500).json({ message: err })
+  }
+}
+
+module.exports.updatePassword = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send('ID unknown : ' + req.params.id)
+
+  try {
+    if (req.params.id !== req.user._id) {
+      return res.status(403).json('unauthorized request')
+    }
+    const hashedPwd = await bcrypt.hash(req.body.password, 10)
+
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
           password: hashedPwd,
         },
       },

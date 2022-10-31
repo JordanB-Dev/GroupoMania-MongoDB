@@ -7,6 +7,7 @@ import Home from '../../pages/Home'
 import Profil from '../../pages/Profil'
 import Footer from '../Footer'
 import ErrorPage from '../../pages/ErrorPage'
+import Wall from '../../pages/Wall'
 
 const routes = () => {
   return (
@@ -18,6 +19,7 @@ const routes = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
         <Route path="/profil" element={<Profil />} />
+        <Route path="/wall" element={<Wall />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

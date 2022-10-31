@@ -1,5 +1,119 @@
 const PostModel = require('../models/postModel')
+const UserModel = require('../models/userModel')
 const ObjectID = require('mongoose').Types.ObjectId
+const bcrypt = require('bcrypt')
+
+module.exports.updateUser = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send('ID unknown : ' + req.params.id)
+
+  try {
+    const { firstname, lastname, email, bio } = req.body
+
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          bio: bio,
+        },
+      },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
+  } catch (err) {
+    return res.status(500).json({ message: err })
+  }
+}
+
+module.exports.updatePassword = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send('ID unknown : ' + req.params.id)
+
+  try {
+    const hashedPwd = await bcrypt.hash(req.body.password, 10)
+
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          password: hashedPwd,
+        },
+      },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
+  } catch (err) {
+    return res.status(500).json({ message: err })
+  }
+}
+
+module.exports.updatePicture = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send('ID unknown : ' + req.params.id)
+
+  try {
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          picture: './uploads/profil/default/random-user.png',
+        },
+      },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
+  } catch (err) {
+    return res.status(500).json({ message: err })
+  }
+}
+
+module.exports.banAccound = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send('ID unknown : ' + req.params.id)
+
+  try {
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          isBan: true,
+        },
+      },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
+  } catch (err) {
+    return res.status(500).json({ message: err })
+  }
+}
+
+module.exports.unBanAccound = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send('ID unknown : ' + req.params.id)
+
+  try {
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          isBan: false,
+        },
+      },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
+  } catch (err) {
+    return res.status(500).json({ message: err })
+  }
+}
 
 module.exports.updatePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))

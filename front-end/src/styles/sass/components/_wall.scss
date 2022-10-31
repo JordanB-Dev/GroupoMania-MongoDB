@@ -1,0 +1,345 @@
+.wall {
+    margin: 50px auto 50px;
+    @include breakpoints(700) {
+        margin: 30px auto 30px;
+      }
+    }
+    
+        .wall_container {
+            margin: 0 20px 10px 20px;
+            padding: 16px 40px;
+            border-radius: 20px;
+            position: relative;
+            background: $white;
+            @include breakpoints(590) {
+                margin: 0 10px 10px 10px;
+              }
+
+                &_header {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 10px;
+                
+                        h1 {
+                            color: $black;
+                        }
+                        .red {
+                          color: $red;
+                        }
+                            img {
+                                border-radius: 20px;
+                                height: 180px;
+                                width: 180px;
+                                box-shadow: 2px 2px 2px rgba(51, 51, 51, 0.16);
+                                object-fit: cover;
+                                margin: 10px;
+                            }
+                                p {
+                                    font-size: 1.3rem;
+                                    font-weight: 500;
+                                    font-style: italic;
+                                    margin: 10px;
+                                }
+                                    h4 {
+                                        margin: 10px;
+                                    }
+                                 
+                }
+
+                .dropdown_admin {
+                    list-style: none;
+                    margin: 25px 20px 0 20px;
+                    width: 95%;
+                }
+                
+                .dropdown_section > .dropdown {
+                    width: 50%;
+                }
+                
+                .dropdown {
+                    margin-bottom: 35px;
+                    text-align: left;
+                
+                    &_header {
+                    align-items: center;
+                    background-color: $black;
+                    border-radius: 10px;
+                    display: inline-flex;
+                    height: 25%;
+                    min-height: 50px;
+                    width: 100%;
+                  }
+                  
+                  &_tilte {
+                    color: $white;
+                    font-weight: 500;
+                    font-size: 18px;
+                    height: 50px;
+                    line-height: 50px;
+                    margin: 5px 10px;
+                  }
+                  
+                  &_fleche {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-right: 10px;
+                    height: 18px;
+                    width: 100%;
+                  }
+                  &_fleche.true {
+                    justify-content: start;
+                    transform: rotate(-180deg);
+                  }
+                  
+                  &_description {
+                    background-color: #f6f6f6;
+                    border-bottom-left-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    color: $black;
+                    width: 100%;
+                    height: 75%;
+                    margin-top: -10px;
+                    min-height: 100px;
+                    padding: 25px 10px 10px 10px;
+                    font-weight: 400;
+                    font-size: 18px;
+                  }
+                }
+                
+                @include breakpoints(1490) {
+                    
+                    .dropdown_section {
+                        display: block;
+                    }
+                
+                    .dropdown_section > .dropdown {
+                        width: 100%;
+                    }
+                    
+                    .dropdown {
+                        margin-bottom: 20px;
+                    }
+                }
+                
+                @include breakpoints(650) {
+                  .dropdown {
+                
+                      &_header {
+                      border-radius: 5px;
+                      width: 98%;
+                    }
+                    
+                      &_tilte {
+                        font-size: 14px;
+                        height: 30px;
+                        line-height: 30px;
+                        margin: 5px 10px;
+                      }
+                      
+                        &_fleche {
+                          height: 12px;
+                        }
+                          &_fleche.true {
+                            justify-content: start;
+                            transform: rotate(-180deg);
+                          }
+                          
+                            &_description {
+                              font-weight: 400;
+                              font-size: 12px;
+                            }
+                  }
+                }
+                
+                @include breakpoints(400) {
+                  .dropdown_section {
+                  margin: 25px 10px 0 10px;
+                  }
+                }
+
+                .btn-container {        
+                  display: grid;
+                  grid-template-columns: 50% 50%;
+              
+                  @include breakpoints(1251){
+                    grid-template-columns: 1fr;
+                  }
+                  
+                &_firstname{
+                  margin: 10px;
+                  float: center;
+                  background: lighten($red, 20%);
+                  color: $white;
+                  cursor: pointer;
+                  transition: 0.2s;
+                  padding: 10px 20px;
+                  font-size: 1.1rem;
+                  border-radius: 20px;
+        
+                  &:hover {
+                    letter-spacing: 1px;
+                    background: $red;
+                    font-weight: 600;
+                  }
+                  }
+      
+                  &_lastname {
+                    margin: 10px;
+                    float: center;
+                    background: lighten($black, 20%);
+                    color: $white;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    padding: 10px 20px;
+                    font-size: 1.1rem;
+                    border-radius: 20px;
+          
+                    &:hover {
+                      letter-spacing: 1px;
+                      background: $black;
+                      font-weight: 600;
+                    }
+                    }
+                    
+                  &_email {
+                    margin: 10px;
+                    float: center;
+                    background: lighten($black, 20%);
+                    color: $white;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    padding: 10px 20px;
+                    font-size: 1.1rem;
+                    border-radius: 20px;
+                    @include breakpoints(1251){
+                      background: lighten($red, 20%);
+                    }
+      
+                    &:hover {
+                      letter-spacing: 1px;
+                      background: $black;
+                      font-weight: 600;
+                      @include breakpoints(1251){
+                        background: $red;
+                      }
+                    }
+                    }
+      
+                    &_password {
+                      margin: 10px;
+                      float: center;
+                      background: lighten($red, 20%);
+                      color: $white;
+                      cursor: pointer;
+                      transition: 0.2s;
+                      padding: 10px 20px;
+                      font-size: 1.1rem;
+                      border-radius: 20px;
+                      @include breakpoints(1251){
+                        background: lighten($black, 20%);
+                      }
+            
+                      &:hover {
+                        letter-spacing: 1px;
+                        background: $red;
+                        font-weight: 600;
+                        @include breakpoints(1251){
+                          background: $black;
+                        }
+                      }
+                      }
+
+                      &_bio {
+                        margin: 10px;
+                        float: center;
+                        background: lighten($red, 20%);
+                        color: $white;
+                        cursor: pointer;
+                        transition: 0.2s;
+                        padding: 10px 20px;
+                        font-size: 1.1rem;
+                        border-radius: 20px;
+                        @include breakpoints(1251){
+                          background: lighten($red, 20%);
+                        }
+              
+                        &:hover {
+                          letter-spacing: 1px;
+                          background: $red;
+                          font-weight: 600;
+                          @include breakpoints(1251){
+                            background: $red;
+                          }
+                        }
+                        }
+
+                        &_picture {
+                          margin: 10px;
+                          float: center;
+                          background: lighten($black, 20%);
+                          color: $white;
+                          cursor: pointer;
+                          transition: 0.2s;
+                          padding: 10px 20px;
+                          font-size: 1.1rem;
+                          border-radius: 20px;
+                
+                          &:hover {
+                            letter-spacing: 1px;
+                            background: $black;
+                            font-weight: 600;
+                          }
+                          }
+
+                          &_ban {
+                            margin: 10px;
+                            float: center;
+                            background: lighten($black, 20%);
+                            color: $white;
+                            cursor: pointer;
+                            transition: 0.2s;
+                            padding: 10px 20px;
+                            font-size: 1.1rem;
+                            border-radius: 20px;
+                            @include breakpoints(1251){
+                              background: lighten($red, 20%);
+                            }
+                  
+                            &:hover {
+                              letter-spacing: 1px;
+                              background: $black;
+                              font-weight: 600;
+                              @include breakpoints(1251){
+                                background: $red;
+                              }
+                            }
+                            }
+
+                            &_unban {
+                              margin: 10px;
+                              float: center;
+                              background: lighten($red, 20%);
+                              color: $white;
+                              cursor: pointer;
+                              transition: 0.2s;
+                              padding: 10px 20px;
+                              font-size: 1.1rem;
+                              border-radius: 20px;
+                              @include breakpoints(1251){
+                                background: lighten($black, 20%);
+                              }
+                    
+                              &:hover {
+                                letter-spacing: 1px;
+                                background: $red;
+                                font-weight: 600;
+                                @include breakpoints(1251){
+                                  background: $black;
+                                }
+                              }
+                              }
+          
+                }
+        }

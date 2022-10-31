@@ -1,7 +1,6 @@
 const PostModel = require('../models/postModel')
 const UserModel = require('../models/userModel')
 const ObjectID = require('mongoose').Types.ObjectId
-const fs = require('fs')
 
 module.exports.readPost = (req, res) => {
   PostModel.find((err, docs) => {

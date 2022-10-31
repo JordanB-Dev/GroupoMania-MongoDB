@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addComment, getPosts } from '../../actions/post.actions'
 import { isEmpty, timestampParser } from '../Utils'
@@ -41,43 +42,49 @@ const CommentPost = ({ post }) => {
             key={comment._id}
           >
             <div className="left_part">
-              <img
-                src={
-                  !isEmpty(usersData[0]) &&
-                  usersData
-                    .map((user) => {
-                      if (user._id === comment.commenterId) return user.picture
-                      else return null
-                    })
-                    .join('')
-                }
-                alt="commenter-pic"
-              />
+              <Link to={`/wall?id=${comment.commenterId}`}>
+                <img
+                  src={
+                    !isEmpty(usersData[0]) &&
+                    usersData
+                      .map((user) => {
+                        if (user._id === comment.commenterId)
+                          return user.picture
+                        else return null
+                      })
+                      .join('')
+                  }
+                  alt="commenter-pic"
+                />
+              </Link>
             </div>
             <div className="right_part">
               <div className="comment_header">
                 <div className="pseudo ">
-                  <h3>
-                    {!isEmpty(usersData[0]) &&
-                      usersData
-                        .map((user) => {
-                          if (user._id === comment.commenterId)
-                            return user.firstname
-                          else return null
-                        })
-                        .join('')}
-                  </h3>
-                  <h3 className="margin">
-                    {' '}
-                    {!isEmpty(usersData[0]) &&
-                      usersData
-                        .map((user) => {
-                          if (user._id === comment.commenterId)
-                            return user.lastname
-                          else return null
-                        })
-                        .join('')}
-                  </h3>
+                  <Link to={`/wall?id=${comment.commenterId}`}>
+                    <h3>
+                      {!isEmpty(usersData[0]) &&
+                        usersData
+                          .map((user) => {
+                            if (user._id === comment.commenterId)
+                              return user.firstname
+                            else return null
+                          })
+                          .join('')}
+                    </h3>
+                  </Link>
+                  <Link to={`/wall?id=${comment.commenterId}`}>
+                    <h3 className="margin">
+                      {!isEmpty(usersData[0]) &&
+                        usersData
+                          .map((user) => {
+                            if (user._id === comment.commenterId)
+                              return user.lastname
+                            else return null
+                          })
+                          .join('')}
+                    </h3>
+                  </Link>
                 </div>
                 <span>{timestampParser(comment.timestamp)}</span>
               </div>

@@ -4,8 +4,13 @@
     justify-content: space-around;
     align-items: center;
     text-align: center;
+    margin-top: 50px;
     color: $red;
     min-height: calc(100vh - 336px);
+    a,
+    a:visited {
+    color: $white;
+    }
 
     
     &_quatreCent {
@@ -23,7 +28,27 @@
                         letter-spacing: 1px;
                     }
             }
+
+            .white {
+                color: $white;
+            }
 }
+
+@include breakpoints(590) {
+    .error_page {
+        &_quatreCent {
+            font-size: 180px;
+        }
+    }
+ }
+
+ @include breakpoints(400) {
+    .error_page {
+        &_quatreCent {
+            font-size: 150px;
+        }
+    }
+ }
 
 @include breakpoints(850) { 
     .error_page {

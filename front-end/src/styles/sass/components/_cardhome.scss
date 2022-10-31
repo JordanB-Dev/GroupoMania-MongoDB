@@ -67,6 +67,10 @@
        &--name {
           display: flex;
           font-size: 1.1rem;
+          a,
+          a:visited {
+            color: $black;
+          }
   
           @include breakpoints(590) {
             margin-left: 52px;
@@ -323,6 +327,10 @@
         &_header {
           display: flex;
           justify-content: space-between;
+          a,
+          a:visited {
+            color: $black;
+          }
   
           @include breakpoints(440) {
             flex-direction: column;

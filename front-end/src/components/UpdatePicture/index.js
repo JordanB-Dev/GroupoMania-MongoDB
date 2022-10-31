@@ -1,6 +1,6 @@
 import { useState, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { uploadPicture } from '../../actions/user.actions'
+import { getUser, uploadPicture } from '../../actions/user.actions'
 
 const UpdatePicture = () => {
   const [picture, setPicture] = useState()
@@ -15,6 +15,7 @@ const UpdatePicture = () => {
     data.append('file', file)
 
     dispatch(uploadPicture(data, userData._id))
+    dispatch(getUser())
   }
 
   const handlePicture = (e) => {

@@ -50,6 +50,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    isBan: {
+      type: Boolean,
+      default: false,
+    },
     isAccound: {
       type: Boolean,
       default: true,
