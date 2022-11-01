@@ -1,11 +1,13 @@
-# Projet Openclassromm Groupomania !
+# Projet 7 Groupomania !
 
 Groupomania est le réseau social interne de l'entreprise du même nom. Ce projet a été réalisé dans le cadre de la formation développeur web d'OpenClassRooms.
 
 # Démarrer
 
 1. Clone le projet
-   ------Back-end---------
+
+------Back-end---------
+
 2. cd back-end
 3. npm install ou yarn add package.json
 4. Créé DB MongoDB puis import la base de données sauvegarde.json (Pas obligatoire)
