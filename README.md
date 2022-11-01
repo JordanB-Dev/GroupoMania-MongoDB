@@ -8,11 +8,11 @@ Groupomania est le réseau social interne de l'entreprise du même nom. Ce proje
 
 ------Back-end---------
 
-2. cd back-end
-3. npm install ou yarn add package.json
-4. Créé DB MongoDB puis import la base de données sauvegarde.json (Pas obligatoire)
-5. Crée un fichier .env et prend exemple sur le .env.example
-6. Lance le Back-end -> nodemon server
+1. cd back-end
+2. npm install ou yarn add package.json
+3. Créé DB MongoDB puis import la base de données sauvegarde.json (Pas obligatoire)
+4. Crée un fichier .env et prend exemple sur le .env.example
+5. Lance le Back-end -> nodemon server
 
 ------Front-end---------
 
