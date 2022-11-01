@@ -2,6 +2,9 @@ const PostModel = require('../models/postModel')
 const UserModel = require('../models/userModel')
 const ObjectID = require('mongoose').Types.ObjectId
 
+/*****************************************************
+ ** READPOST AFFICHE TOUT LES POST
+ ******************************************************/
 module.exports.readPost = (req, res) => {
   PostModel.find((err, docs) => {
     if (!err) res.send(docs)
@@ -9,6 +12,9 @@ module.exports.readPost = (req, res) => {
   }).sort({ createdAt: -1 })
 }
 
+/*****************************************************
+ ** CREATEPOST CREE UN POST
+ ******************************************************/
 module.exports.createPost = async (req, res) => {
   let imageUrl
   if (req.file) {
@@ -34,6 +40,9 @@ module.exports.createPost = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** UPDATEPOST MODIFIER UN POST
+ ******************************************************/
 module.exports.updatePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -67,6 +76,9 @@ module.exports.updatePost = async (req, res) => {
   )
 }
 
+/*****************************************************
+ ** DELETEPOST SUPPRIMER UN POST
+ ******************************************************/
 module.exports.deletePost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -80,6 +92,9 @@ module.exports.deletePost = (req, res) => {
   })
 }
 
+/*****************************************************
+ ** LIKEPOST AIMER UN POST
+ ******************************************************/
 module.exports.likePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -109,6 +124,9 @@ module.exports.likePost = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** UNLIKEPOST RETIRER SON JAIME DUN POST
+ ******************************************************/
 module.exports.unlikePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)

@@ -3,6 +3,9 @@ const UserModel = require('../models/userModel')
 const ObjectID = require('mongoose').Types.ObjectId
 const bcrypt = require('bcrypt')
 
+/*****************************************************
+ ** UPDATEUSER MODIFIER FIRSTNAME? LASTNAME...
+ ******************************************************/
 module.exports.updateUser = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -29,6 +32,9 @@ module.exports.updateUser = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** UPDATEPASSWORD MODIFIER MOT DE PASSE
+ ******************************************************/
 module.exports.updatePassword = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -52,6 +58,9 @@ module.exports.updatePassword = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** UPDATEPICTURE MODIFIER PHOTO DE PROFIL
+ ******************************************************/
 module.exports.updatePicture = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -73,6 +82,9 @@ module.exports.updatePicture = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** BANACCOUND BANNIR UN UTILISATEUR
+ ******************************************************/
 module.exports.banAccound = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -94,6 +106,9 @@ module.exports.banAccound = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** UNBANACCOUND DEBANNIR UN UTILISATEUR
+ ******************************************************/
 module.exports.unBanAccound = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -115,6 +130,9 @@ module.exports.unBanAccound = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** UPDATEPOST MODIFIER UN POST
+ ******************************************************/
 module.exports.updatePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -145,6 +163,9 @@ module.exports.updatePost = async (req, res) => {
   )
 }
 
+/*****************************************************
+ ** DELETEPOST SUPPRIMER UN POST
+ ******************************************************/
 module.exports.deletePost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)

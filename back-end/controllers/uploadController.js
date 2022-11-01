@@ -2,6 +2,9 @@ const UserModel = require('../models/userModel')
 const sharp = require('sharp')
 const { uploadErrors } = require('../utils/errorsUtils')
 
+/*****************************************************
+ ** UPDATEPROFIL METTRE UNE PHOTO DE PROFIL
+ ******************************************************/
 module.exports.uploadProfil = async (req, res) => {
   try {
     if (req.body.userId && req.body.userId !== req.user._id) {

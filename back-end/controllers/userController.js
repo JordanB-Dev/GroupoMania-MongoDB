@@ -2,11 +2,17 @@ const UserModel = require('../models/userModel')
 const ObjectID = require('mongoose').Types.ObjectId
 const bcrypt = require('bcrypt')
 
+/*****************************************************
+ ** GETALLUSERS AFFICHE TOUT LES UTILISATEUR
+ ******************************************************/
 module.exports.getAllUsers = async (req, res) => {
   const users = await UserModel.find().select(['-password', '-email'])
   res.status(200).json(users)
 }
 
+/*****************************************************
+ ** GETONEUSER AFFICHE UN UTILISATEUR
+ ******************************************************/
 module.exports.getOneUser = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -17,6 +23,9 @@ module.exports.getOneUser = (req, res) => {
   }).select(['-password', '-email'])
 }
 
+/*****************************************************
+ ** UPDATEUSER MODIFIER SON PRENOM NOM....
+ ******************************************************/
 module.exports.updateUser = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -46,6 +55,9 @@ module.exports.updateUser = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** UPDATEPASSWORD MODIFIER SON MOT DE PASSE
+ ******************************************************/
 module.exports.updatePassword = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -72,6 +84,9 @@ module.exports.updatePassword = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** DISABLEDACCOUND DESACTIVER SON COMPTE
+ ******************************************************/
 module.exports.disabledAccound = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -96,6 +111,9 @@ module.exports.disabledAccound = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** ACTIVEACCOUND ACTIVER SON COMPTE A NOUVEAU
+ ******************************************************/
 module.exports.activeAccound = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
