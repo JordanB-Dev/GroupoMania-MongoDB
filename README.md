@@ -25,17 +25,17 @@ Groupomania est le réseau social interne de l'entreprise du même nom. Ce proje
 
 Une fois que l'utilisateur aura créé un compte, il aura la possibilité de :
 
-Publier des posts (avec ou sans images)
-Réagir à des posts
-Commenter des posts
-Modifier ses posts/commentaires
-Supprimer ses posts/commentaire
-Modifier ses informations personnelles
-Désactiver son compte/ réactiver son compte
+1. Publier des posts (avec ou sans images)
+2. Réagir à des posts
+3. Commenter des posts
+4. Modifier ses posts/commentaires
+5. Supprimer ses posts/commentaire
+6. Modifier ses informations personnelles
+7. Désactiver son compte/ réactiver son compte
 
 # Compte ADMIN Fonctionnalités
 
-Modifier tous les posts/commentaires
-Supprimer tous les posts/commentaire
-Modifier les informations personnelles des utilisateurs
-Bannir/débannir tous les comptes
+1. Modifier tous les posts/commentaires
+2. Supprimer tous les posts/commentaire
+3. Modifier les informations personnelles des utilisateurs
+4. Bannir/débannir tous les comptes
