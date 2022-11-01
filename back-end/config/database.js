@@ -4,7 +4,8 @@ mongoose
   .connect(
     'mongodb+srv://' +
       process.env.DB_USER_PASS +
-      '@cluster0.3sdindk.mongodb.net/groupomania',
+      '@cluster0.3sdindk.mongodb.net/' +
+      process.env.DB_NAME,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
