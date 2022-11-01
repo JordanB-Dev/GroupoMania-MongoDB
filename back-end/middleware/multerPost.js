@@ -14,7 +14,7 @@ const MIME_TYPES = {
 }
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, 'images/uploads/posts/')
+    callback(null, `${__dirname}/../../front-end/public/uploads/posts/`)
   },
   filename: (req, file, callback) => {
     const name = file.originalname.split(' ').join('_')
@@ -32,12 +32,15 @@ const storage = multer.diskStorage({
       file.mimetype === 'image/tif' ||
       file.mimetype === 'image/webp'
     ) {
-      callback(null, name + Date.now() + '.' + extension)
+      callback(
+        null,
+        name + '_' + req.user._id + '_' + Date.now() + '.' + extension
+      )
     } else {
       console.log('fichier non accepté')
       callback(
         null,
-        'isole/' + req.auth.userId + '_' + name + Date.now() + '.' + extension
+        'isole/' + req.user._id + '_' + name + Date.now() + '.' + extension
       )
     }
   },

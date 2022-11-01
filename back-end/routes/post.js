@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const postController = require('../controllers/postController')
 const commentController = require('../controllers/commentController')
-const multerMiddleware = require('../middleware/multerMiddleware')
-const { isAuth, isAdmin } = require('../middleware/authMiddleware')
+const multerPost = require('../middleware/multerPost')
+const { isAuth } = require('../middleware/authMiddleware')
 
 const raterLimit = require('express-rate-limit')
 
@@ -12,8 +12,8 @@ const limiter = raterLimit({
 })
 
 router.get('/', isAuth, postController.readPost)
-router.post('/', isAuth, multerMiddleware, postController.createPost)
-router.put('/:id', isAuth, limiter, postController.updatePost)
+router.post('/', isAuth, multerPost, postController.createPost)
+router.put('/:id', isAuth, limiter, multerPost, postController.updatePost)
 router.delete('/:id', isAuth, limiter, postController.deletePost)
 router.patch('/like/:id', isAuth, postController.likePost)
 router.patch('/unlike/:id', isAuth, postController.unlikePost)

@@ -1,11 +1,18 @@
 const UserModel = require('../models/userModel')
 const ObjectID = require('mongoose').Types.ObjectId
+const bcrypt = require('bcrypt')
 
+/*****************************************************
+ ** GETALLUSERS AFFICHE TOUT LES UTILISATEUR
+ ******************************************************/
 module.exports.getAllUsers = async (req, res) => {
   const users = await UserModel.find().select(['-password', '-email'])
   res.status(200).json(users)
 }
 
+/*****************************************************
+ ** GETONEUSER AFFICHE UN UTILISATEUR
+ ******************************************************/
 module.exports.getOneUser = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -16,7 +23,71 @@ module.exports.getOneUser = (req, res) => {
   }).select(['-password', '-email'])
 }
 
+/*****************************************************
+ ** UPDATEUSER MODIFIER SON PRENOM NOM....
+ ******************************************************/
 module.exports.updateUser = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send('ID unknown : ' + req.params.id)
+
+  try {
+    if (req.params.id !== req.user._id) {
+      return res.status(403).json('unauthorized request')
+    }
+    const { firstname, lastname, email, bio } = req.body
+
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          bio: bio,
+        },
+      },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
+  } catch (err) {
+    return res.status(500).json({ message: err })
+  }
+}
+
+/*****************************************************
+ ** UPDATEPASSWORD MODIFIER SON MOT DE PASSE
+ ******************************************************/
+module.exports.updatePassword = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send('ID unknown : ' + req.params.id)
+
+  try {
+    if (req.params.id !== req.user._id) {
+      return res.status(403).json('unauthorized request')
+    }
+    const hashedPwd = await bcrypt.hash(req.body.password, 10)
+
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          password: hashedPwd,
+        },
+      },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
+  } catch (err) {
+    return res.status(500).json({ message: err })
+  }
+}
+
+/*****************************************************
+ ** DISABLEDACCOUND DESACTIVER SON COMPTE
+ ******************************************************/
+module.exports.disabledAccound = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
 
@@ -28,12 +99,11 @@ module.exports.updateUser = async (req, res) => {
       { _id: req.params.id },
       {
         $set: {
-          bio: req.body.bio,
+          isAccound: false,
         },
       },
       { new: true, upsert: true, setDefaultsOnInsert: true }
     )
-      .select(['-password', '-email'])
       .then((data) => res.send(data))
       .catch((err) => res.status(500).send({ message: err }))
   } catch (err) {
@@ -41,7 +111,10 @@ module.exports.updateUser = async (req, res) => {
   }
 }
 
-module.exports.deleteUser = async (req, res) => {
+/*****************************************************
+ ** ACTIVEACCOUND ACTIVER SON COMPTE A NOUVEAU
+ ******************************************************/
+module.exports.activeAccound = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
 
@@ -49,8 +122,16 @@ module.exports.deleteUser = async (req, res) => {
     if (req.params.id !== req.user._id) {
       return res.status(403).json('unauthorized request')
     }
-    await UserModel.remove({ _id: req.params.id }).exec()
-    res.status(200).json({ message: 'Successfully deleted. ' })
+    await UserModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          isAccound: true,
+        },
+      }
+    )
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).send({ message: err }))
   } catch (err) {
     return res.status(500).json({ message: err })
   }

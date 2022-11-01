@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema(
     },
     picture: {
       type: String,
-      default: './images/uploads/profil/random-user.png',
+      default: './uploads/profil/default/random-user.png',
     },
     bio: {
       type: String,
@@ -49,6 +49,14 @@ const userSchema = new mongoose.Schema(
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    isBan: {
+      type: Boolean,
+      default: false,
+    },
+    isAccound: {
+      type: Boolean,
+      default: true,
     },
   },
   {

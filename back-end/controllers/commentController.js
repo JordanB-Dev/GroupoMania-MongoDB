@@ -1,6 +1,9 @@
 const PostModel = require('../models/postModel')
 const ObjectID = require('mongoose').Types.ObjectId
 
+/*****************************************************
+ ** COMMENTPOST METTRE UN COMMENTAIRE
+ ******************************************************/
 module.exports.commentPost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -14,8 +17,6 @@ module.exports.commentPost = (req, res) => {
         $push: {
           comments: {
             commenterId: req.body.commenterId,
-            commenterFirstname: req.body.commenterFirstname,
-            commenterLastname: req.body.commenterLastname,
             text: req.body.text,
             timestamp: new Date().getTime(),
           },
@@ -30,6 +31,9 @@ module.exports.commentPost = (req, res) => {
   }
 }
 
+/*****************************************************
+ ** EDITCOMMENTPOST MODIFIER UN COMMENTAIRE
+ ******************************************************/
 module.exports.editCommentPost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -55,6 +59,9 @@ module.exports.editCommentPost = (req, res) => {
   }
 }
 
+/*****************************************************
+ ** DELETECOMMENTPOST MODIFIER UN COMMENTAIRE
+ ******************************************************/
 module.exports.deleteCommentPost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)

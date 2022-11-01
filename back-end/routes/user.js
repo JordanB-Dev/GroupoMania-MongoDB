@@ -4,7 +4,7 @@ const authController = require('../controllers/authController')
 const userController = require('../controllers/userController')
 const uploadController = require('../controllers/uploadController')
 const pwdCtrl = require('../middleware/passwordMiddleware')
-const { isAuth, isAdmin } = require('../middleware/authMiddleware')
+const { isAuth } = require('../middleware/authMiddleware')
 const multer = require('multer')
 const upload = multer()
 
@@ -20,8 +20,15 @@ router.get('/logout', authController.logout)
 router.get('/', isAuth, userController.getAllUsers)
 router.get('/:id', isAuth, userController.getOneUser)
 router.put('/:id', isAuth, limiter, userController.updateUser)
-router.delete('/:id', isAuth, userController.deleteUser)
+router.patch('/:id', isAuth, limiter, userController.updatePassword)
+router.post('/disabled/:id', isAuth, userController.disabledAccound)
+router.post('/active/:id', isAuth, userController.activeAccound)
 
-router.post('/upload', upload.single('file'), uploadController.uploadProfil)
+router.post(
+  '/upload',
+  isAuth,
+  upload.single('file'),
+  uploadController.uploadProfil
+)
 
 module.exports = router

@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken')
 const UserModel = require('../models/userModel')
-const PostModel = require('../models/postModel')
 
 module.exports.checkUser = (req, res, next) => {
   const token = req.cookies.jwt
@@ -11,7 +10,7 @@ module.exports.checkUser = (req, res, next) => {
         res.cookie('jwt', '', { maxAge: 1 })
         next()
       } else {
-        let user = await UserModel.findById(decodedToken.id)
+        let user = await UserModel.findById(decodedToken._id)
         res.locals.user = user
 
         next()
@@ -33,7 +32,6 @@ module.exports.isAuth = (req, res, next) => {
       } else {
         req.user = decodedToken
         req.post = decodedToken
-        console.log(decodedToken.id)
         next()
       }
     })

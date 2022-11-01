@@ -2,6 +2,9 @@ const PostModel = require('../models/postModel')
 const UserModel = require('../models/userModel')
 const ObjectID = require('mongoose').Types.ObjectId
 
+/*****************************************************
+ ** READPOST AFFICHE TOUT LES POST
+ ******************************************************/
 module.exports.readPost = (req, res) => {
   PostModel.find((err, docs) => {
     if (!err) res.send(docs)
@@ -9,21 +12,19 @@ module.exports.readPost = (req, res) => {
   }).sort({ createdAt: -1 })
 }
 
+/*****************************************************
+ ** CREATEPOST CREE UN POST
+ ******************************************************/
 module.exports.createPost = async (req, res) => {
-  if (req.body.posterId && req.body.posterId !== req.user._id) {
-    return res.status(403).json('unauthorized request')
-  }
   let imageUrl
   if (req.file) {
-    imageUrl = `/images/uploads/posts/${req.file.filename}`
+    imageUrl = `./uploads/posts/${req.file.filename}`
   } else {
     picture = null
   }
 
   const newPost = new PostModel({
     posterId: req.body.posterId,
-    lastname: req.user.lastname,
-    firstname: req.user.firstname,
     message: req.body.message,
     picture: imageUrl,
     video: req.body.video,
@@ -39,6 +40,9 @@ module.exports.createPost = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** UPDATEPOST MODIFIER UN POST
+ ******************************************************/
 module.exports.updatePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -46,8 +50,19 @@ module.exports.updatePost = async (req, res) => {
     return res.status(403).json('unauthorized request')
   }
 
+  let newImageUrl
+
+  if (req.file) {
+    newImageUrl = `./uploads/posts/${req.file.filename}`
+  }
+
+  if (newImageUrl && req.picture) {
+    req.picture.split(`${__dirname}/../../front-end/public/uploads/posts/`)[1]
+  }
+
   const updatedRecord = {
     message: req.body.message,
+    picture: newImageUrl,
   }
 
   PostModel.findByIdAndUpdate(
@@ -61,6 +76,9 @@ module.exports.updatePost = async (req, res) => {
   )
 }
 
+/*****************************************************
+ ** DELETEPOST SUPPRIMER UN POST
+ ******************************************************/
 module.exports.deletePost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -74,6 +92,9 @@ module.exports.deletePost = (req, res) => {
   })
 }
 
+/*****************************************************
+ ** LIKEPOST AIMER UN POST
+ ******************************************************/
 module.exports.likePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
@@ -103,6 +124,9 @@ module.exports.likePost = async (req, res) => {
   }
 }
 
+/*****************************************************
+ ** UNLIKEPOST RETIRER SON JAIME DUN POST
+ ******************************************************/
 module.exports.unlikePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
