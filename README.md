@@ -23,7 +23,7 @@ Groupomania est le réseau social interne de l'entreprise du même nom. Ce proje
 
 ------Sauvegarde DB---------
 
-1. Dans front-end puis DB sauvegarde
+1. Dossier DB sauvegarde
 
 ------Compte Admin---------
 
