@@ -21,6 +21,17 @@ Groupomania est le réseau social interne de l'entreprise du même nom. Ce proje
 3. Créé un fichier .env et prend exemple sur le .env.example "REACT_APP_API_URL=http://localhost:4200/"
 4. Lance le Font-end -> npm start ou yarn start
 
+------Sauvegarde DB---------
+
+1. Compte Admin
+2. Adresse mail
+
+admin@gmail.com
+
+3. Mot de passe
+
+Admin789456@
+
 # Fonctionnalités
 
 Une fois que l'utilisateur aura créé un compte, il aura la possibilité de :

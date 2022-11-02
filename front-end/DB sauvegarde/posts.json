@@ -1,0 +1,399 @@
+[{
+  "_id": {
+    "$oid": "6362762f4962b1bc16b8cfbc"
+  },
+  "posterId": "636275eb4962b1bc16b8cfad",
+  "message": "Post admin 1",
+  "picture": "./uploads/posts/nyan-cat-gif-1.gif_636275eb4962b1bc16b8cfad_1667397167918.gif",
+  "likers": [
+    "636275eb4962b1bc16b8cfad",
+    "6362767f4962b1bc16b8cfdb"
+  ],
+  "comments": [
+    {
+      "commenterId": "636275eb4962b1bc16b8cfad",
+      "text": "comment 1",
+      "timestamp": {
+        "$numberLong": "1667397178994"
+      },
+      "_id": {
+        "$oid": "6362763a4962b1bc16b8cfc0"
+      }
+    },
+    {
+      "commenterId": "6362767f4962b1bc16b8cfdb",
+      "text": "comment 2",
+      "timestamp": {
+        "$numberLong": "1667397268678"
+      },
+      "_id": {
+        "$oid": "636276944962b1bc16b8cff5"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397167919"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397268678"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636276bf4962b1bc16b8d01b"
+  },
+  "posterId": "6362767f4962b1bc16b8cfdb",
+  "message": "Post 1",
+  "picture": "./uploads/posts/images.jpg_6362767f4962b1bc16b8cfdb_1667397311274.jpg",
+  "likers": [
+    "6362767f4962b1bc16b8cfdb",
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397311282"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397538625"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636276f44962b1bc16b8d021"
+  },
+  "posterId": "6362767f4962b1bc16b8cfdb",
+  "message": "Post 2",
+  "picture": "./uploads/posts/tred.jpg_6362767f4962b1bc16b8cfdb_1667397364062.jpg",
+  "likers": [
+    "6362767f4962b1bc16b8cfdb",
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397364064"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397536803"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636276fa4962b1bc16b8d027"
+  },
+  "posterId": "6362767f4962b1bc16b8cfdb",
+  "message": "Post 3",
+  "likers": [
+    "6362767f4962b1bc16b8cfdb",
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397370171"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397535779"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636277044962b1bc16b8d02d"
+  },
+  "posterId": "6362767f4962b1bc16b8cfdb",
+  "message": "Post 4",
+  "picture": "./uploads/posts/a41da36a5cecde614764971847aa5274.gif_6362767f4962b1bc16b8cfdb_1667397380511.gif",
+  "likers": [
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397380513"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397535047"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636277144962b1bc16b8d053"
+  },
+  "posterId": "6362767f4962b1bc16b8cfdb",
+  "message": "Post 5",
+  "picture": "./uploads/posts/2nJJ.gif_6362767f4962b1bc16b8cfdb_1667397396871.gif",
+  "likers": [
+    "6362767f4962b1bc16b8cfdb",
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397396874"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397533767"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636277214962b1bc16b8d071"
+  },
+  "posterId": "636275eb4962b1bc16b8cfad",
+  "message": "Post 2 admin",
+  "picture": "./uploads/posts/tÃ©lÃ©chargement_(1).jpg_636275eb4962b1bc16b8cfad_1667397409994.jpg",
+  "likers": [
+    "6362767f4962b1bc16b8cfdb",
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397409995"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397531392"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6362773c4962b1bc16b8d07b"
+  },
+  "posterId": "6362767f4962b1bc16b8cfdb",
+  "message": "Post 6",
+  "picture": "./uploads/posts/c5e842e6e28545eacc2ce2bee68804c0.gif_6362767f4962b1bc16b8cfdb_1667397436963.gif",
+  "likers": [
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397436968"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397529844"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636277474962b1bc16b8d09d"
+  },
+  "posterId": "6362767f4962b1bc16b8cfdb",
+  "message": "Post 7",
+  "picture": "./uploads/posts/tÃ©lÃ©chargement2.jpg_6362767f4962b1bc16b8cfdb_1667397447584.jpg",
+  "likers": [
+    "6362767f4962b1bc16b8cfdb",
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397447586"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397528477"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636277574962b1bc16b8d0a3"
+  },
+  "posterId": "6362767f4962b1bc16b8cfdb",
+  "message": "Post 8",
+  "picture": "./uploads/posts/tÃ©lÃ©chargement.jpg_6362767f4962b1bc16b8cfdb_1667397463636.jpg",
+  "likers": [
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397463638"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397527497"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636277654962b1bc16b8d0a9"
+  },
+  "posterId": "6362767f4962b1bc16b8cfdb",
+  "message": "Post 9",
+  "picture": "./uploads/posts/tÃ©lÃ©chargement_(1).jpg_6362767f4962b1bc16b8cfdb_1667397477379.jpg",
+  "likers": [
+    "6362767f4962b1bc16b8cfdb",
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [
+    {
+      "commenterId": "636275eb4962b1bc16b8cfad",
+      "text": "test",
+      "timestamp": {
+        "$numberLong": "1667397558695"
+      },
+      "_id": {
+        "$oid": "636277b64962b1bc16b8d188"
+      }
+    },
+    {
+      "commenterId": "6362767f4962b1bc16b8cfdb",
+      "text": "test",
+      "timestamp": {
+        "$numberLong": "1667397577230"
+      },
+      "_id": {
+        "$oid": "636277c94962b1bc16b8d1ba"
+      }
+    },
+    {
+      "commenterId": "6362767f4962b1bc16b8cfdb",
+      "text": "test2",
+      "timestamp": {
+        "$numberLong": "1667397580144"
+      },
+      "_id": {
+        "$oid": "636277cc4962b1bc16b8d1c9"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397477380"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397584023"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636277734962b1bc16b8d0af"
+  },
+  "posterId": "6362767f4962b1bc16b8cfdb",
+  "message": "Post 10",
+  "picture": "./uploads/posts/nyan-cat-gif-1.gif_6362767f4962b1bc16b8cfdb_1667397491096.gif",
+  "likers": [
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [
+    {
+      "commenterId": "636275eb4962b1bc16b8cfad",
+      "text": "test",
+      "timestamp": {
+        "$numberLong": "1667397555105"
+      },
+      "_id": {
+        "$oid": "636277b34962b1bc16b8d17f"
+      }
+    },
+    {
+      "commenterId": "6362767f4962b1bc16b8cfdb",
+      "text": "test2",
+      "timestamp": {
+        "$numberLong": "1667397573210"
+      },
+      "_id": {
+        "$oid": "636277c54962b1bc16b8d1ac"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397491098"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397573210"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636277814962b1bc16b8d0b5"
+  },
+  "posterId": "636275eb4962b1bc16b8cfad",
+  "message": "Post 3 admin",
+  "picture": "./uploads/posts/2nJJ.gif_636275eb4962b1bc16b8cfad_1667397505078.gif",
+  "likers": [
+    "6362767f4962b1bc16b8cfdb",
+    "636275eb4962b1bc16b8cfad"
+  ],
+  "comments": [
+    {
+      "commenterId": "636275eb4962b1bc16b8cfad",
+      "text": "test",
+      "timestamp": {
+        "$numberLong": "1667397550985"
+      },
+      "_id": {
+        "$oid": "636277ae4962b1bc16b8d177"
+      }
+    },
+    {
+      "commenterId": "6362767f4962b1bc16b8cfdb",
+      "text": "test2",
+      "timestamp": {
+        "$numberLong": "1667397566304"
+      },
+      "_id": {
+        "$oid": "636277be4962b1bc16b8d192"
+      }
+    },
+    {
+      "commenterId": "6362767f4962b1bc16b8cfdb",
+      "text": "test2",
+      "timestamp": {
+        "$numberLong": "1667397569063"
+      },
+      "_id": {
+        "$oid": "636277c14962b1bc16b8d19e"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397505082"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397569063"
+    }
+  },
+  "__v": 0
+}]
