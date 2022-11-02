@@ -10,13 +10,11 @@ import rootReducer from './reducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { getUsers } from './actions/users.action'
 import { getPosts } from './actions/post.actions'
-import { getUser } from './actions/user.actions'
 
 const store = configureStore(
   { reducer: rootReducer },
   composeWithDevTools(applyMiddleware(thunk))
 )
-store.dispatch(getUser())
 store.dispatch(getUsers())
 store.dispatch(getPosts())
 
