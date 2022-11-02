@@ -27,15 +27,13 @@ Groupomania est le réseau social interne de l'entreprise du même nom. Ce proje
 
 ------Compte Admin---------
 
-1. Compte Admin
-2. Adresse mail: admin@gmail.com
-3. Mot de passe: Admin789456@
+1. Adresse mail: admin@gmail.com
+2. Mot de passe: Admin789456@
 
 ------Compte Demo---------
 
-1. Compte Admin
-2. Adresse mail: demo@gmail.com
-3. Mot de passe: Demo789456@
+1. Adresse mail: demo@gmail.com
+2. Mot de passe: Demo789456@
 
 # Fonctionnalités
 
