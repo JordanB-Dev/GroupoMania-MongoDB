@@ -1,78 +1,75 @@
-[
-  {
-    "_id": {
-      "$oid": "636275eb4962b1bc16b8cfad"
-    },
-    "lastname": "Bachelez",
-    "firstname": "Jordan",
-    "email": "admin@gmail.com",
-    "password": "$2b$10$cxdOgfIP1ynJPJkv93DvhemSxOxa.N3lUZsMJGf2zB2rpY5ZgVXSy",
-    "picture": "/uploads/profil/636275eb4962b1bc16b8cfad_Jordan_Bachelez.jpg",
-    "bio": "Ma BIO",
-    "likes": [
-      "6362762f4962b1bc16b8cfbc",
-      "636277814962b1bc16b8d0b5",
-      "636277734962b1bc16b8d0af",
-      "636277654962b1bc16b8d0a9",
-      "636277574962b1bc16b8d0a3",
-      "636277474962b1bc16b8d09d",
-      "6362773c4962b1bc16b8d07b",
-      "636277214962b1bc16b8d071",
-      "636277144962b1bc16b8d053",
-      "636277044962b1bc16b8d02d",
-      "636276fa4962b1bc16b8d027",
-      "636276f44962b1bc16b8d021",
-      "636276bf4962b1bc16b8d01b"
-    ],
-    "isAdmin": true,
-    "isBan": false,
-    "isAccound": true,
-    "createdAt": {
-      "$date": {
-        "$numberLong": "1667397099069"
-      }
-    },
-    "updatedAt": {
-      "$date": {
-        "$numberLong": "1667397742188"
-      }
-    },
-    "__v": 0
+[{
+  "_id": {
+    "$oid": "636275eb4962b1bc16b8cfad"
   },
-  {
-    "_id": {
-      "$oid": "6362767f4962b1bc16b8cfdb"
-    },
-    "lastname": "Demo",
-    "firstname": "Compte",
-    "email": "demo@gmail.com",
-    "password": "$2b$10$jma0WGoJGyVpYGwvA20KeOdyk4SUdR63feguGyg8eap7SyIt8xOuO",
-    "picture": "/uploads/profil/6362767f4962b1bc16b8cfdb_Compte_Demo.jpg",
-    "bio": "Ma BIO",
-    "likes": [
-      "6362762f4962b1bc16b8cfbc",
-      "636277814962b1bc16b8d0b5",
-      "636277654962b1bc16b8d0a9",
-      "636277474962b1bc16b8d09d",
-      "636277214962b1bc16b8d071",
-      "636277144962b1bc16b8d053",
-      "636276fa4962b1bc16b8d027",
-      "636276f44962b1bc16b8d021",
-      "636276bf4962b1bc16b8d01b"
-    ],
-    "isAdmin": false,
-    "isBan": false,
-    "isAccound": true,
-    "createdAt": {
-      "$date": {
-        "$numberLong": "1667397247738"
-      }
-    },
-    "updatedAt": {
-      "$date": {
-        "$numberLong": "1667397719490"
-      }
-    },
-    "__v": 0
-  }
-]
+  "lastname": "Bachelez",
+  "firstname": "Jordan",
+  "email": "admin@gmail.com",
+  "password": "$2b$10$xtHNrpts1nC8DNQA1EIHXunsK4EmXFNRrUpzt9JnprLC41dd2oisK",
+  "picture": "/uploads/profil/636275eb4962b1bc16b8cfad_Jordan_Bachelez.jpg",
+  "bio": "Ma BIO",
+  "likes": [
+    "6362762f4962b1bc16b8cfbc",
+    "636277814962b1bc16b8d0b5",
+    "636277734962b1bc16b8d0af",
+    "636277654962b1bc16b8d0a9",
+    "636277574962b1bc16b8d0a3",
+    "636277474962b1bc16b8d09d",
+    "6362773c4962b1bc16b8d07b",
+    "636277214962b1bc16b8d071",
+    "636277144962b1bc16b8d053",
+    "636277044962b1bc16b8d02d",
+    "636276fa4962b1bc16b8d027",
+    "636276f44962b1bc16b8d021",
+    "636276bf4962b1bc16b8d01b"
+  ],
+  "isAdmin": true,
+  "isBan": false,
+  "isAccound": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397099069"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667402920649"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6362767f4962b1bc16b8cfdb"
+  },
+  "lastname": "Demo",
+  "firstname": "Compte",
+  "email": "demo@gmail.com",
+  "password": "$2b$10$jma0WGoJGyVpYGwvA20KeOdyk4SUdR63feguGyg8eap7SyIt8xOuO",
+  "picture": "/uploads/profil/6362767f4962b1bc16b8cfdb_Compte_Demo.jpg",
+  "bio": "Ma BIO",
+  "likes": [
+    "6362762f4962b1bc16b8cfbc",
+    "636277814962b1bc16b8d0b5",
+    "636277654962b1bc16b8d0a9",
+    "636277474962b1bc16b8d09d",
+    "636277214962b1bc16b8d071",
+    "636277144962b1bc16b8d053",
+    "636276fa4962b1bc16b8d027",
+    "636276f44962b1bc16b8d021",
+    "636276bf4962b1bc16b8d01b"
+  ],
+  "isAdmin": false,
+  "isBan": false,
+  "isAccound": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667397247738"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1667397719490"
+    }
+  },
+  "__v": 0
+}]
