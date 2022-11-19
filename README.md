@@ -4,6 +4,16 @@ Le projet consiste à construire un réseau social interne pour les employés de
 but de cet outil est de faciliter les interactions entre collègues. Le département RH de
 Groupomania a imaginé plusieurs fonctionnalités pour favoriser les échanges entre collègues. Ce projet a été réalisé dans le cadre de la formation développeur web d'OpenClassRooms.
 
+# Outils
+1. Back-End
+NodeJs
+Express
+MongoDB
+
+2.Front-End
+ReactJS
+Redux
+
 # Démarrer
 
 1. Clone le projet
