@@ -5,7 +5,7 @@ but de cet outil est de faciliter les interactions entre collègues. Le départe
 Groupomania a imaginé plusieurs fonctionnalités pour favoriser les échanges entre collègues. Ce projet a été réalisé dans le cadre de la formation développeur web d'OpenClassRooms.
 
 # Outils
-1. Back-End
+**Back-End
 NodeJs
 Express
 MongoDB
