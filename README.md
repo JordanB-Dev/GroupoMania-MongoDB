@@ -1,66 +1,80 @@
-# Projet 7 Groupomania !
+<h1 align="center">
+  GroupoMania:  réseau social d’entreprise
+</h1>
 
+>  ## **Scénario**
+Vous êtes développeur depuis plus d'un an chez CONNECT-E, une petite agence web
+regroupant une douzaine d'employés.
+Votre directrice, Stéphanie, vient de signer un nouveau contrat avec Groupomania, un groupe
+spécialisé dans la grande distribution, et l'un des plus Kdèles clients de l'agence.
 Le projet consiste à construire un réseau social interne pour les employés de Groupomania. Le
 but de cet outil est de faciliter les interactions entre collègues. Le département RH de
-Groupomania a imaginé plusieurs fonctionnalités pour favoriser les échanges entre collègues. Ce projet a été réalisé dans le cadre de la formation développeur web d'OpenClassRooms.
+Groupomania a imaginé plusieurs fonctionnalités pour favoriser les échanges entre collègues.
 
-# Outils Back-End
-1. NodeJs
-2. Express
-3. MongoDB
 
-# Outils Front-End
-1. ReactJS
-2. Redux
+>  ## **Languages Back-End**
+- <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> NodeJs
+- <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> Express
+-   <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> MongoDB
 
-# Démarrer
+>  ## **Languages Front-End**
+- <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a>  ReactJS
+- <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> Redux
+- <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> CSS
+- <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> SASS
+
+
+>  ## **Démarrer**
 
 1. Clone le projet
+- ``
+git clone https://github.com/JordanB-Dev/P7_REACT_MongoDB.git
+``
 
-------Back-end---------
+> ## **Back-End**
 
-1. cd back-end
-2. npm install ou yarn add package.json
-3. Créé DB MongoDB puis import la base de données sauvegarde.json (Pas obligatoire)
-4. Crée un fichier .env et prend exemple sur le .env.example
-5. Lance le Back-end -> nodemon server
+1. ``cd back-end``
+2. ``npm install ou yarn add package.json``
+3. ``Créé DB MongoDB puis import la base de données sauvegarde.json (Pas obligatoire)``
+4. ``Crée un fichier .env et prend exemple sur le .env.example``
+5. ``Lance le Back-end -> nodemon server``
 
-------Front-end---------
+> ## **Front-end**
 
-1. cd front-end
-2. npm install ou yarn add package.json
-3. Créé un fichier .env et prend exemple sur le .env.example "REACT_APP_API_URL=http://localhost:4200/"
-4. Lance le Font-end -> npm start ou yarn start
+1. ``cd front-end``
+2. ``npm install ou yarn add package.json``
+3. ``Créé un fichier .env et prend exemple sur le .env.example "REACT_APP_API_URL=http://localhost:4200/"``
+4. ``Lance le Font-end -> npm start ou yarn start``
 
-------Sauvegarde DB---------
+> ## **Sauvegarde DB**
 
-1. Dossier DB sauvegarde
+1. ``Dossier DB sauvegarde``
 
-------Compte Admin---------
+> ## **Compte Admin**
 
-1. Adresse mail: admin@gmail.com
-2. Mot de passe: Admin789456@
+1. ``Adresse mail: admin@gmail.com``
+2. ``Mot de passe: Admin789456@``
 
-------Compte Demo---------
+> ## **Compte Demo**
 
-1. Adresse mail: demo@gmail.com
-2. Mot de passe: Demo789456@
+1. ``Adresse mail: demo@gmail.com``
+2. ``Mot de passe: Demo789456@``
 
-# Fonctionnalités
+> ## **Fonctionnalités**
 
 Une fois que l'utilisateur aura créé un compte, il aura la possibilité de :
 
-1. Publier des posts (avec ou sans images)
-2. Réagir à des posts
-3. Commenter des posts
-4. Modifier ses posts/commentaires
-5. Supprimer ses posts/commentaire
-6. Modifier ses informations personnelles
-7. Désactiver son compte/ réactiver son compte
+- Publier des posts (avec ou sans images)
+- Réagir à des posts
+- Commenter des posts
+- Modifier ses posts/commentaires
+- Supprimer ses posts/commentaire
+- Modifier ses informations personnelles
+- Désactiver son compte/ réactiver son compte
 
-# Compte ADMIN Fonctionnalités
+> ## **Compte ADMIN Fonctionnalités**
 
-1. Modifier tous les posts/commentaires
-2. Supprimer tous les posts/commentaire
-3. Modifier les informations personnelles des utilisateurs
-4. Bannir/débannir tous les comptes
+- Modifier tous les posts/commentaires
+- Supprimer tous les posts/commentaire
+- Modifier les informations personnelles des utilisateurs
+- Bannir/débannir tous les comptes
