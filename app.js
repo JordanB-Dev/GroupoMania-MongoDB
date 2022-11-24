@@ -12,7 +12,7 @@ const cors = require('cors')
 const app = express()
 
 const corsOptions = {
-  origin: '*',
+  origin: process.env.URL,
   credentials: true,
   allowedHeaders: ['sessionId', 'Content-Type'],
   exposedHeaders: ['sessionId'],
@@ -24,7 +24,7 @@ app.use(cors(corsOptions))
 app.use(helmet())
 app.use(helmet.xssFilter())
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Origin', `${process.env.URL}`)
   res.setHeader(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
