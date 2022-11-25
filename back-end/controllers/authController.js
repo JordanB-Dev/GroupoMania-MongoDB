@@ -1,8 +1,8 @@
-const UserModel = require('../models/userModel')
-const jwt = require('jsonwebtoken')
-const { signUpErrors, signInErrors } = require('../utils/errorsUtils')
+const UserModel = require("../models/userModel");
+const jwt = require("jsonwebtoken");
+const { signUpErrors, signInErrors } = require("../utils/errorsUtils");
 
-const maxAge = 3 * 24 * 60 * 60 * 1000
+const maxAge = 3 * 24 * 60 * 60 * 1000;
 
 const createToken = (user) => {
   return jwt.sign(
@@ -17,15 +17,15 @@ const createToken = (user) => {
     {
       expiresIn: maxAge,
     }
-  )
-}
+  );
+};
 
 /*****************************************************
  ** SIGNUP
  ******************************************************/
 
 module.exports.signUp = async (req, res) => {
-  const { firstname, lastname, email, password } = req.body
+  const { firstname, lastname, email, password } = req.body;
 
   try {
     const user = await UserModel.create({
@@ -33,23 +33,23 @@ module.exports.signUp = async (req, res) => {
       lastname,
       email,
       password,
-    })
-    res.status(201).json({ user: user.id })
+    });
+    res.status(201).json({ user: user.id });
   } catch (error) {
-    const errors = signUpErrors(error)
-    res.status(401).send({ errors })
+    const errors = signUpErrors(error);
+    res.status(401).send({ errors });
   }
-}
+};
 
 /*****************************************************
  ** LOGIN
  ******************************************************/
 
 module.exports.signIn = async (req, res) => {
-  const { email, password } = req.body
+  const { email, password } = req.body;
 
   try {
-    const user = await UserModel.login(email, password)
+    const user = await UserModel.login(email, password);
 
     const token = createToken({
       _id: user._id,
@@ -57,22 +57,27 @@ module.exports.signIn = async (req, res) => {
       firstname: user.firstname,
       email: user.email,
       isAdmin: user.isAdmin,
-    })
-    res.cookie('jwt', token, { httpOnly: true, maxAge })
+    });
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      sameSite: true,
+      secure: true,
+      maxAge,
+    });
     res.status(200).json({
       user: user._id,
       isAdmin: user.isAdmin,
-    })
+    });
   } catch (err) {
-    const errors = signInErrors(err)
-    res.status(401).json({ errors })
+    const errors = signInErrors(err);
+    res.status(401).json({ errors });
   }
-}
+};
 
 /*****************************************************
  ** DECONNEXION
  ******************************************************/
 module.exports.logout = (req, res) => {
-  res.cookie('jwt', '', { maxAge: 1 })
-  res.redirect('/')
-}
+  res.cookie("jwt", "", { maxAge: 1 });
+  res.redirect("/");
+};
