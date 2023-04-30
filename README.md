@@ -6,7 +6,7 @@
 >
 > Le projet consisté à crée un réseau social d’entreprise pour l'entreprise GroupoMania!
 
-> ## **Maquette Groupomania** 
+> ## **Maquette Groupomania**
 >
 > ![Screenshot_1](https://user-images.githubusercontent.com/101954241/204126945-8f07fc66-ad14-4557-992e-6b2b9a878808.png) > ![Screenshot_2](https://user-images.githubusercontent.com/101954241/204126949-f47063cc-02ee-4a1f-832c-f9e50c44ac53.png) > ![Screenshot_3](https://user-images.githubusercontent.com/101954241/204126953-a812bb40-c70a-42db-8ab2-6838ef8b56b5.png) > ![Screenshot_4](https://user-images.githubusercontent.com/101954241/204126958-bc0fad00-0fe4-43f9-99aa-27783e5220fe.png)
 
