@@ -1,4 +1,4 @@
-<h1 align="center"> 
+<h1 align="center">
  Créez un réseau social d’entreprise: GroupoMania!
 </h1>
 
