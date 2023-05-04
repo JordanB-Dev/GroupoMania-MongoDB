@@ -1,5 +1,5 @@
 <h1 align="center">
- Créez un réseau social d’entreprise: GroupoMania!
+ Créez un réseau social d’entreprise: GroupoMania! 
 </h1>
 
 > ## **Scénario**
