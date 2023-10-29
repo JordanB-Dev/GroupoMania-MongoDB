@@ -20,7 +20,7 @@ import {
 
 const initialState = {}
 
-export default function useReducer(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER:
       return action.payload

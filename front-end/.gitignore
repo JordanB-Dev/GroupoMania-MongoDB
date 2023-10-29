@@ -42,6 +42,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+build/
 
 # TypeScript v1 declaration files
 typings/
@@ -106,5 +107,6 @@ dist
 .tern-port
 
 node_modules
+build
 config/.env
 .prettierrc
