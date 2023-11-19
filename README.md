@@ -41,7 +41,7 @@
 
 1. `cd front-end`
 2. `npm install ou yarn add package.json`
-3. `Créé un fichier .env et prend exemple sur le .env.example "REACT_APP_API_URL=https://api-groupomania.jordandev.fr/"`
+3. `Créé un fichier .env et prend exemple sur le .env.example "REACT_APP_API_URL=http://localhost:4200/"`
 4. `Lance le Font-end -> npm start ou yarn start`
 
 > ## **Sauvegarde DB**
