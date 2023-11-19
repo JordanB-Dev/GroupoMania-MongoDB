@@ -8,10 +8,11 @@ import Profil from '../../pages/Profil'
 import Footer from '../Footer'
 import ErrorPage from '../../pages/ErrorPage'
 import Wall from '../../pages/Wall'
+import { Fragment } from 'react'
 
 const routes = () => {
   return (
-    <div>
+    <Fragment>
       <Header />
       <Routes>
         <Route path="/" element={<From />} />
@@ -23,7 +24,7 @@ const routes = () => {
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
-    </div>
+    </Fragment>
   )
 }
 

@@ -42,7 +42,6 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-build/
 
 # TypeScript v1 declaration files
 typings/
@@ -74,6 +73,14 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+.DS_Store
+.env.local
+.env.production
+.env.developement
+.env.developement.local
+.env.test.local
+.env.production.local
+.prettierrc
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -107,6 +114,9 @@ dist
 .tern-port
 
 node_modules
-build
 config/.env
 .prettierrc
+.vscode
+.eslintrc.cls
+.firebase
+.firebaserc

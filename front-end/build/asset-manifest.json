@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e22ea4f2.css",
+    "main.js": "/static/js/main.7028b59b.js",
+    "static/media/bg-noise-texture.png": "/static/media/bg-noise-texture.d0897bd29428fc9e4c32.png",
+    "index.html": "/index.html",
+    "main.e22ea4f2.css.map": "/static/css/main.e22ea4f2.css.map",
+    "main.7028b59b.js.map": "/static/js/main.7028b59b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e22ea4f2.css",
+    "static/js/main.7028b59b.js"
+  ]
+}
